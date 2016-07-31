@@ -1,0 +1,22 @@
+{
+  "name": "coderoad-redux-js",
+  "version": "0.1.0",
+  "description": "Coderoad tutorial for using redux with raw javascript",
+  "bugs": {
+    "url": "https://github.com/shmck/coderoad-redux-js"
+  },
+  "license": "ISC",
+  "author": "Shawn McKay <shawn.j.mckay@gmail.com>",
+  "main": "index.js",
+  "repository": "https://github.com/shmck/coderoad-redux-js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "config": {
+    "language": "JS",
+    "runner": "mocha-coderoad"
+  },
+  "dependencies": {
+    "mocha-coderoad": "latest"
+  }
+}
