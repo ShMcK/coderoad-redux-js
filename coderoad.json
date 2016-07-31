@@ -6,15 +6,15 @@
   "pages": [
     {
       "title": "Project Setup",
-      "description": "Getting your project directory setup.\n\n1. Install package dependencies\n2. Create an output directory called \"dist\"\n3. Install \"concurrently\" & \"browser-sync\" globally\n4. Run our app in the browser\n\nYou may want to consider installing the atom package [\"platformio-ide-terminal\"](https://github.com/platformio/platformio-atom-ide-terminal), which provides a terminal inside your editor.",
+      "description": "Getting a project setup is rarely easy. Luckily, we have a quick script that can do the work for us.\n\n---\n\nRunning `> npm run setup` will do the following:\n\n1. Install package dev dependencies\n2. Create an output directory called \"dist\"\n3. Install \"concurrently\" & \"browser-sync\" globally\n4. Run our app in the browser\n\nYou'll find this \"setup\" script located in your *package.json*.\n\n---\n\nWe'll be installing a lot of scripts from terminal. You may also want to consider installing the atom package [\"platformio-ide-terminal\"](https://github.com/platformio/platformio-atom-ide-terminal), which provides a terminal inside your editor.",
       "tasks": [
         {
-          "description": "in a terminal run `> npm run setup`",
+          "description": "Open a terminal in this project directory and run `npm run setup`.",
           "tests": [
             "01/01"
           ],
           "hints": [
-            "in a terminal run `npm run setup` to get setup"
+            "Open a terminal in this project directory and run `npm run setup` to get setup"
           ],
           "actions": [
             "open('package.json')",

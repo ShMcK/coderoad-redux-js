@@ -1,16 +1,25 @@
 ## Project Setup
-Getting your project directory setup.
+Getting a project setup is rarely easy. Luckily, we have a quick script that can do the work for us.
 
-1. Install package dependencies
+---
+
+Running `> npm run setup` will do the following:
+
+1. Install package dev dependencies
 2. Create an output directory called "dist"
 3. Install "concurrently" & "browser-sync" globally
 4. Run our app in the browser
 
-You may want to consider installing the atom package ["platformio-ide-terminal"](https://github.com/platformio/platformio-atom-ide-terminal), which provides a terminal inside your editor.
+You'll find this "setup" script located in your *package.json*.
 
-+ in a terminal run `> npm run setup`
+---
+
+We'll be installing a lot of scripts from terminal. You may also want to consider installing the atom package ["platformio-ide-terminal"](https://github.com/platformio/platformio-atom-ide-terminal), which provides a terminal inside your editor.
+
+
++ Open a terminal in this project directory and run `npm run setup`.
 @test('01/01')
-@hint('in a terminal run `npm run setup` to get setup')
+@hint('Open a terminal in this project directory and run `npm run setup` to get setup')
 @action(open('package.json'))
 @action(set(
 ```
