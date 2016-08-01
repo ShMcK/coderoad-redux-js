@@ -41,3 +41,7 @@ We'll be installing a lot of scripts from terminal. You may also want to conside
 ##### The Store
 
 The "single source of truth".
+
+```js
+const store = createStore(reducer, initialState);
+```

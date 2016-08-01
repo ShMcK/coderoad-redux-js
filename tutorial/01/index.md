@@ -37,10 +37,6 @@ We'll be installing a lot of scripts from terminal. You may also want to conside
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "config": {
-    "language": "JS",
-    "runner": "mocha-coderoad"
-  },
   "dependencies": {
     "mocha-coderoad": "latest"
   },
@@ -50,7 +46,8 @@ We'll be installing a lot of scripts from terminal. You may also want to conside
     "babelify": "^7.3.0",
     "browser-sync": "^2.13.0",
     "concurrently": "^2.2.0",
-    "npm-watch": "^0.1.5"
+    "npm-watch": "^0.1.5",
+    "coderoad-redux-js": "^0.1.0"
   },
   "watch": {
     "reload": {

@@ -1,24 +1,12 @@
-var expect = require('chai').expect;
+var chai = require('chai');
+var spies = require('chai-spies');
+var expect = chai.expect;
+chai.use(spies);
 
-/// load('page-02.js')
+describe('01 Redux', () => {
 
-describe('01 divideOne', function() {
-
-  it('doesn\'t exist', function () {
-    expect(divideOne).to.be.defined;
-  });
-
-  it('should take a parameter', function() {
-    expect(divideOne).to.have.length(1);
-  });
-
-  it('doesn\'t output a number', function () {
-    expect(divideOne(1)).to.be.a('number');
-  });
-
-  it('returns the same number', function() {
-    expect(divideOne(1)).to.equal(1);
-    expect(divideOne(10)).to.equal(10);
+  it('isn\'t installed', () => {
+    expect(exists('node_modules/redux')).to.be.true;
   });
 
 });

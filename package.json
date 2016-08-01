@@ -7,16 +7,19 @@
   },
   "license": "ISC",
   "author": "Shawn McKay <shawn.j.mckay@gmail.com>",
-  "main": "index.js",
+  "main": "coderoad.json",
   "repository": "https://github.com/shmck/coderoad-redux-js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "config": {
+    "dir": "tutorial",
+    "testSuffix": ".js",
     "language": "JS",
-    "runner": "mocha-coderoad"
+    "runner": "mocha-coderoad",
+    "edit": true
   },
   "dependencies": {
-    "mocha-coderoad": "latest"
+    "mocha-coderoad": "0.9.0"
   }
 }

@@ -1,20 +1,6 @@
 var expect = require('chai').expect;
-const { accessSync, F_OK } = require('fs');
 
-// must include function to check before deps are added
-function exists(path, silent = true) {
-  try {
-    accessSync(path, F_OK);
-  } catch (e) {
-    if (e) {
-      if (!silent) {
-        console.log(e);
-      }
-      return false;
-    }
-  }
-  return true;
-}
+/// load('index.js')
 
 describe('01 setup', () => {
 
