@@ -38,7 +38,7 @@ We'll be installing a lot of scripts from terminal. You may also want to conside
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "mocha-coderoad": "latest"
+    "mocha-coderoad": "0.9.0"
   },
     "devDependencies": {
     "babel-preset-es2015": "^6.9.0",

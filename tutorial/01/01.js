@@ -1,7 +1,5 @@
 var expect = require('chai').expect;
 
-/// load('index.js')
-
 describe('01 setup', () => {
 
 	it('dist directory doesn\'t exist. Run `npm run setup`', () => {

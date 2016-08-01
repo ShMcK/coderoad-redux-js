@@ -20,6 +20,6 @@
     "edit": true
   },
   "dependencies": {
-    "mocha-coderoad": "0.9.0"
+    "mocha-coderoad": "0.9.1"
   }
 }
