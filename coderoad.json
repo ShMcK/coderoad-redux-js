@@ -131,7 +131,7 @@
     },
     {
       "title": "Reducer",
-      "description": "The data transformation\n\n```js\nconst reducer = (state) => {\n  console.log('state: ', state);\n  return state;\n};\n```",
+      "description": "The data transformation\n\n```js\nconst reducer = (state) => {\n  console.log(state);\n  return state;\n};\n```",
       "tasks": [
         {
           "description": "Create a reducer and call it as the first param in your `createStore`",
@@ -140,6 +140,198 @@
           ],
           "actions": [
             "open('index.js')"
+          ]
+        },
+        {
+          "description": "Change the state",
+          "tests": [
+            "04/02"
+          ]
+        },
+        {
+          "description": "Pass an action to the reducer",
+          "tests": [
+            "04/03"
+          ]
+        },
+        {
+          "description": "Dispatch two voteUp actions through the reducer: `store.dispatch(voteUp(2))`",
+          "tests": [
+            "04/04"
+          ]
+        },
+        {
+          "description": "Create a `switch` statement and pass in `action.type`, the default return should return `state`",
+          "tests": [
+            "04/05"
+          ]
+        },
+        {
+          "description": "add a switch case for `VOTE_UP`. Inside of it, console.log the `id` of the action passed in\n\n# Pure Functions\n\n05/01\n```js\nconst nextPokemon = state.pokemon.map(p => {\n    if (id === p.id) {\n      p.votes += 1;\n    }\n    return p;\n  });\n  return {\n   pokemon: nextPokemon\n };\n ```",
+          "tests": [
+            "04/06"
+          ]
+        },
+        {
+          "description": "Return a new list of Pokemon with the pokemon matching the id incrementing its votes by one",
+          "tests": [
+            "05/01"
+          ]
+        },
+        {
+          "description": "Use Object.assign",
+          "tests": [
+            "05/02"
+          ],
+          "hints": [
+            "return `Object.assign({}, { pokemon: nextPokemon });`"
+          ]
+        }
+      ],
+      "onPageComplete": ""
+    },
+    {
+      "title": "Combine Reducers",
+      "description": "Using thunks for async actions.",
+      "tasks": [
+        {
+          "description": "import `combineReducers` from redux",
+          "tests": [
+            "06/01"
+          ]
+        },
+        {
+          "description": "set reducers using combineReducers, pass it into store",
+          "tests": [
+            "06/02"
+          ]
+        },
+        {
+          "description": "create a \"defaultPokemon\" state",
+          "tests": [
+            "06/03"
+          ]
+        },
+        {
+          "description": "pass the default state into the pokemon reducer",
+          "tests": [
+            "06/04"
+          ]
+        },
+        {
+          "description": "set the initial state to an empty object",
+          "tests": [
+            "06/05"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Middleware",
+      "description": "Using thunks for async actions.",
+      "tasks": [
+        {
+          "description": "import `applyMiddleware`",
+          "tests": [
+            "07/01"
+          ]
+        },
+        {
+          "description": "set the second param in createStore to `applyMiddleware()`",
+          "tests": [
+            "07/02"
+          ]
+        },
+        {
+          "description": "install \"redux-logger\" using npm",
+          "tests": [
+            "07/03"
+          ]
+        },
+        {
+          "description": "create a \"logger\" as the result of `createLogger()`",
+          "tests": [
+            "07/04"
+          ]
+        },
+        {
+          "description": "pass \"logger\" into `applyMiddleware()`",
+          "tests": [
+            "07/05"
+          ]
+        }
+      ],
+      "onPageComplete": "Look in the console"
+    },
+    {
+      "title": "Second Action",
+      "description": "Creating a \"SORT_BY_POPULARITY\" action.\n\n```js\nfunction sortByVotes(a, b) {\n  switch(true) {\n   case a.votes < b.votes:\n    return 1;\n  case a.votes > b.votes:\n    return -1;\n  default:\n    return 0;\n  }\n }\n```\n\nSort pokemon by votes",
+      "tasks": [
+        {
+          "description": "create an action type for 'SORT_BY_POPULARITY'",
+          "tests": [
+            "08/01"
+          ]
+        },
+        {
+          "description": "create an action creator called 'sortByPopularity'",
+          "tests": [
+            "08/02"
+          ]
+        },
+        {
+          "description": "dispatch a `sortByPopularity` action after the two voteUp dispatches",
+          "tests": [
+            "08/03"
+          ]
+        },
+        {
+          "description": "add a `SORT_BY_POPULARITY` case that returns `pokemon.sort();`",
+          "tests": [
+            "08/04"
+          ]
+        },
+        {
+          "description": "create a sortByVotes function and pass it into the pokemon.sort function",
+          "tests": [
+            "08/05"
+          ]
+        },
+        {
+          "description": "Make a `sortByKey` function, which is more reusable, by wrapping it in a function that takes a key",
+          "tests": [
+            "08/06"
+          ]
+        },
+        {
+          "description": "You've just created a **thunk** - a function that returns a function. Pass your function into the pokemon.sort() method and give it the key of 'votes'",
+          "tests": [
+            "08/07"
+          ]
+        }
+      ],
+      "onPageComplete": "In the next step, we'll look at using thunks to call async actions"
+    },
+    {
+      "title": "Thunk",
+      "description": "Using thunks for async actions.",
+      "tasks": [
+        {
+          "description": "install \"redux-thunk\" as a dependency",
+          "tests": [
+            "09/01"
+          ]
+        },
+        {
+          "description": "import thunk from \"redux-thunk\"",
+          "tests": [
+            "09/02"
+          ]
+        },
+        {
+          "description": "add thunk to applyMiddleware. The logger should always go last",
+          "tests": [
+            "09/03"
           ]
         }
       ]

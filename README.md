@@ -73,7 +73,38 @@ The data transformation
 
 ```js
 const reducer = (state) => {
-  console.log('state: ', state);
+  console.log(state);
   return state;
 };
 ```
+
+##### Combine Reducers
+
+Using thunks for async actions.
+
+##### Middleware
+
+Using thunks for async actions.
+
+##### Second Action
+
+Creating a "SORT_BY_POPULARITY" action.
+
+```js
+function sortByVotes(a, b) {
+  switch(true) {
+   case a.votes < b.votes:
+    return 1;
+  case a.votes > b.votes:
+    return -1;
+  default:
+    return 0;
+  }
+ }
+```
+
+Sort pokemon by votes
+
+##### Thunk
+
+Using thunks for async actions.
