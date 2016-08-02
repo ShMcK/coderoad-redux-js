@@ -4,7 +4,7 @@ A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux.
 
 <!-- @import('01') -->
 <!-- @import('02') -->
-<!-- @import('04') -->
+<!-- @import('03') -->
 <!-- @import('05') -->
 <!-- @import('06') -->
 <!-- @import('07') -->
@@ -28,23 +28,13 @@ CodeRoad is an open-sourced interactive tutorial platform for the Atom Editor. L
 
 ## Outline
 
-##### Actions
+##### Reducer
 
-Events that change the data.
-
-##### 1. Actions
-```js
-const action = { type: 'ACTION_NAME' };
-```
-
-##### 2. Action Creators
+The data transformation
 
 ```js
-const actionName = () => ({ type: 'ACTION_NAME' });
-```
-
-##### 3. Action Types
-
-```js
-const ACTION_NAME = 'ACTION_NAME'
+const reducer = (state) => {
+  console.log(state);
+  return state;
+};
 ```

@@ -1,59 +1,63 @@
 {
   "info": {
     "title": "CodeRoad Redux JS Tutorial",
-    "description": "A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux.\n\n<!-- @import('01') -->\n<!-- @import('02') -->\n<!-- @import('04') -->\n<!-- @import('05') -->\n<!-- @import('06') -->\n<!-- @import('07') -->\n<!-- @import('08') -->\n<!-- @import('09') -->"
+    "description": "A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux.\n\n<!-- @import('01') -->\n<!-- @import('02') -->\n<!-- @import('03') -->\n<!-- @import('05') -->\n<!-- @import('06') -->\n<!-- @import('07') -->\n<!-- @import('08') -->\n<!-- @import('09') -->"
   },
   "pages": [
     {
-      "title": "Actions",
-      "description": "Events that change the data.\n\n##### 1. Actions\n```js\nconst action = { type: 'ACTION_NAME' };\n```\n\n##### 2. Action Creators\n\n```js\nconst actionName = () => ({ type: 'ACTION_NAME' });\n```\n\n##### 3. Action Types\n\n```js\nconst ACTION_NAME = 'ACTION_NAME'\n```",
+      "title": "Reducer",
+      "description": "The data transformation\n\n```js\nconst reducer = (state) => {\n  console.log(state);\n  return state;\n};\n```",
       "tasks": [
         {
-          "description": "create an action called `voteUp`",
+          "description": "Extract the `state => state` function in create store, and call in a new function called \"reducer\".",
           "tests": [
-            "03/01"
+            "04/01"
           ],
           "actions": [
             "open('index.js')"
           ]
         },
         {
-          "description": "change `voteUp` into an action creator.",
+          "description": "Log the state inside of your reducer. What does it look like?",
           "tests": [
-            "03/02"
+            "04/02"
           ],
           "hints": [
-            "wrap your output object in round brackets",
-            "Try this: `const voteUp = () => ({ type: \"VOTE_UP\" });`"
+            "Add a `console.log` statement inside of your reducer function",
+            "Try this:```js\nconst reducer = (state) => {\n  console.log(state);\n  return state;\n};\n```"
           ]
         },
         {
-          "description": "add a param of `id` to your action creator",
+          "description": "Pass an action as a second param to the reducer",
           "tests": [
-            "03/03"
+            "04/03"
           ]
         },
         {
-          "description": "create an action type for `voteUp`",
-          "hints": [
-            "const VOTE_UP = \"VOTE_UP\""
-          ],
+          "description": "Dispatch two voteUp actions through the reducer: `store.dispatch(voteUp(2))`. Change your log statement inside of your reducer to look like this: `console.log('state: ', state, 'action: ', action)`",
           "tests": [
-            "03/04"
+            "04/04"
           ]
         },
         {
-          "description": "Use the action type inside your `voteUp` action creator. Notice how your editor may autocomplete the action type.",
+          "description": "Create a `switch` statement and pass in `action.type`, the default return should return `state`",
           "tests": [
-            "03/05"
-          ],
-          "hints": [
-            "change \"VOTE_UP\" to use the constant VOTE_UP",
-            "Try this: `const voteUp = () => ({ type: VOTE_UP });`"
+            "04/05"
+          ]
+        },
+        {
+          "description": "The `switch` statement should have a `default` case that returns the state",
+          "tests": [
+            "04/06"
+          ]
+        },
+        {
+          "description": "add a switch case for `VOTE_UP`. For now, just console.log the `id` of the action passed in and return the default state again.",
+          "tests": [
+            "04/07"
           ]
         }
-      ],
-      "onPageComplete": "Excellent! In the next unit we will look at how these actions can be used to transform data using a \"reducer\""
+      ]
     }
   ]
 }

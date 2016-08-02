@@ -1,9 +1,4 @@
-var chai = require('chai');
-var spies = require('chai-spies');
-var expect = chai.expect;
-chai.use(spies);
-
-var spy = chai.spy.on(console, 'log');
+const expect = require('chai').expect;
 
 /// load('index.js')
 
