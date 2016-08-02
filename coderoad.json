@@ -1,36 +1,66 @@
 {
   "info": {
     "title": "CodeRoad Redux JS Tutorial",
-    "description": "A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux.\n\n<!-- @import('01') -->\n<!-- @import('02') -->\n<!-- @import('03') -->\n<!-- @import('04') -->\n<!-- @import('06') -->\n<!-- @import('07') -->\n<!-- @import('08') -->\n<!-- @import('09') -->"
+    "description": "A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux.\n\n<!-- @import('01') -->\n<!-- @import('02') -->\n<!-- @import('03') -->\n<!-- @import('04') -->\n<!-- @import('05') -->\n<!-- @import('07') -->\n<!-- @import('08') -->\n<!-- @import('09') -->"
   },
   "pages": [
     {
-      "title": "Pure Functions",
-      "description": "Reducers must be pure functions\n\nState is \"read only\".\n\nNotes\n```js\nconst nextPokemon = state.pokemon.map(p => {\n    if (id === p.id) {\n      p.votes += 1;\n    }\n    return p;\n  });\n  return {\n   pokemon: nextPokemon\n };\n ```",
+      "title": "Combine Reducers",
+      "description": "Create modular, composable reducers.",
       "tasks": [
         {
-          "description": "Return a new list of Pokemon after incrementing \"votes\" of the pokemon with the matching \"id\"",
+          "description": "import `combineReducers` from redux",
           "tests": [
-            "05/01"
-          ]
-        },
-        {
-          "description": "Let's make a test to see that we are truly returning a new state. Wrap your `initialState` object in a `Object.freeze`. Freeze makes an object unchangeable. And yet your reducer should still work.",
-          "tests": [
-            "05/02"
-          ]
-        },
-        {
-          "description": "What if we were dealing with multiple keys on the state. We'd have to ensure that our changes return a complete new state each time. Use `Object.assign`",
-          "tests": [
-            "05/03"
+            "06/01"
           ],
           "hints": [
-            "return `Object.assign({}, { pokemon: nextPokemon });`"
+            "Try this: `import { combineReducers } from 'redux';`"
+          ]
+        },
+        {
+          "description": "create a new `const reducers` and set it to \"reducer\". Pass \"reducers\" into your store for now, instead of \"reducer\". We'll use combineReducers shortly, but let's not break the app yet.",
+          "tests": [
+            "06/02"
+          ]
+        },
+        {
+          "description": "We're going to create more than one reducer. They can't all be called \"reducer\", so rename your reducer 'pokemon'.",
+          "tests": [
+            "06/03"
+          ]
+        },
+        {
+          "description": "combineReducers(), and pass in your reducer ({ pokemon })",
+          "tests": [
+            "06/04"
+          ]
+        },
+        {
+          "description": "create a \"defaultPokemon\" state",
+          "tests": [
+            "06/05"
+          ]
+        },
+        {
+          "description": "set the initial state of the store to an empty object",
+          "tests": [
+            "06/06"
+          ]
+        },
+        {
+          "description": "pass the default state into the pokemon reducer",
+          "tests": [
+            "06/07"
+          ]
+        },
+        {
+          "description": "We no longer pass the entire \"state\" inside of our reducers, only the slice of our state the reducer needs to know. Rename all references to \"state\" inside of your \"pokemon\" reducer to what it really is now: \"pokemon\".",
+          "tests": [
+            "06/08"
           ]
         }
       ],
-      "onPageComplete": "Now that you have an idea of how reducers work. Next we can look at how to create multiple, modular reducers."
+      "onPageComplete": "The state remains the same as before, but now"
     }
   ]
 }
