@@ -5,7 +5,7 @@ A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux.
 <!-- @import('01') -->
 <!-- @import('02') -->
 <!-- @import('03') -->
-<!-- @import('05') -->
+<!-- @import('04') -->
 <!-- @import('06') -->
 <!-- @import('07') -->
 <!-- @import('08') -->
@@ -28,13 +28,21 @@ CodeRoad is an open-sourced interactive tutorial platform for the Atom Editor. L
 
 ## Outline
 
-##### Reducer
+##### Pure Functions
 
-The data transformation
+Reducers must be pure functions
 
+State is "read only".
+
+Notes
 ```js
-const reducer = (state) => {
-  console.log(state);
-  return state;
-};
-```
+const nextPokemon = state.pokemon.map(p => {
+    if (id === p.id) {
+      p.votes += 1;
+    }
+    return p;
+  });
+  return {
+   pokemon: nextPokemon
+ };
+ ```

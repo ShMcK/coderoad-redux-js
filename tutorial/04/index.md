@@ -36,5 +36,5 @@ const reducer = (state) => {
 + The `switch` statement should have a `default` case that returns the state
 @test('04/06')
 
-+ add a switch case for `VOTE_UP`. For now, just console.log the `id` of the action passed in and return the default state again.
++ add a switch case for `VOTE_UP`. For now, just console.log the `id` of the action passed in and return the default state again. Tip: destructuring: `const { id } = action.payload;`
 @test('04/07')

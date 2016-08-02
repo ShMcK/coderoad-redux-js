@@ -1,63 +1,36 @@
 {
   "info": {
     "title": "CodeRoad Redux JS Tutorial",
-    "description": "A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux.\n\n<!-- @import('01') -->\n<!-- @import('02') -->\n<!-- @import('03') -->\n<!-- @import('05') -->\n<!-- @import('06') -->\n<!-- @import('07') -->\n<!-- @import('08') -->\n<!-- @import('09') -->"
+    "description": "A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux.\n\n<!-- @import('01') -->\n<!-- @import('02') -->\n<!-- @import('03') -->\n<!-- @import('04') -->\n<!-- @import('06') -->\n<!-- @import('07') -->\n<!-- @import('08') -->\n<!-- @import('09') -->"
   },
   "pages": [
     {
-      "title": "Reducer",
-      "description": "The data transformation\n\n```js\nconst reducer = (state) => {\n  console.log(state);\n  return state;\n};\n```",
+      "title": "Pure Functions",
+      "description": "Reducers must be pure functions\n\nState is \"read only\".\n\nNotes\n```js\nconst nextPokemon = state.pokemon.map(p => {\n    if (id === p.id) {\n      p.votes += 1;\n    }\n    return p;\n  });\n  return {\n   pokemon: nextPokemon\n };\n ```",
       "tasks": [
         {
-          "description": "Extract the `state => state` function in create store, and call in a new function called \"reducer\".",
+          "description": "Return a new list of Pokemon after incrementing \"votes\" of the pokemon with the matching \"id\"",
           "tests": [
-            "04/01"
-          ],
-          "actions": [
-            "open('index.js')"
+            "05/01"
           ]
         },
         {
-          "description": "Log the state inside of your reducer. What does it look like?",
+          "description": "Let's make a test to see that we are truly returning a new state. Wrap your `initialState` object in a `Object.freeze`. Freeze makes an object unchangeable. And yet your reducer should still work.",
           "tests": [
-            "04/02"
+            "05/02"
+          ]
+        },
+        {
+          "description": "What if we were dealing with multiple keys on the state. We'd have to ensure that our changes return a complete new state each time. Use `Object.assign`",
+          "tests": [
+            "05/03"
           ],
           "hints": [
-            "Add a `console.log` statement inside of your reducer function",
-            "Try this:```js\nconst reducer = (state) => {\n  console.log(state);\n  return state;\n};\n```"
-          ]
-        },
-        {
-          "description": "Pass an action as a second param to the reducer",
-          "tests": [
-            "04/03"
-          ]
-        },
-        {
-          "description": "Dispatch two voteUp actions through the reducer: `store.dispatch(voteUp(2))`. Change your log statement inside of your reducer to look like this: `console.log('state: ', state, 'action: ', action)`",
-          "tests": [
-            "04/04"
-          ]
-        },
-        {
-          "description": "Create a `switch` statement and pass in `action.type`, the default return should return `state`",
-          "tests": [
-            "04/05"
-          ]
-        },
-        {
-          "description": "The `switch` statement should have a `default` case that returns the state",
-          "tests": [
-            "04/06"
-          ]
-        },
-        {
-          "description": "add a switch case for `VOTE_UP`. For now, just console.log the `id` of the action passed in and return the default state again.",
-          "tests": [
-            "04/07"
+            "return `Object.assign({}, { pokemon: nextPokemon });`"
           ]
         }
-      ]
+      ],
+      "onPageComplete": "Now that you have an idea of how reducers work. Next we can look at how to create multiple, modular reducers."
     }
   ]
 }
