@@ -29,7 +29,10 @@
       "description": "The \"single source of truth\".\n\n```js\nconst store = createStore(reducer, initialState);\n```",
       "tasks": [
         {
-          "description": "install Redux. Run `npm install --save redux`.",
+          "description": "install Redux.",
+          "hints": [
+            "Run `npm install --save redux`."
+          ],
           "actions": [
             "open('index.js')"
           ],
@@ -38,13 +41,20 @@
           ]
         },
         {
-          "description": "import createStore. `import { createStore } from 'redux';`",
+          "description": "import `createStore` from the redux module.",
+          "hints": [
+            "Add `import { createStore } from 'redux';`"
+          ],
           "tests": [
             "02/02"
           ]
         },
         {
           "description": "create your first store and call it `store`. Use a simple \"reducer\" function for now, let's say `state => state`.",
+          "hints": [
+            "declare your store, `const store`",
+            "call store with a simple reducer, `const store = createStore(state => state)`"
+          ],
           "tests": [
             "02/03"
           ]
@@ -53,10 +63,86 @@
           "description": "log your store to the console and have a look.",
           "tests": [
             "02/04"
+          ],
+          "hints": [
+            "console.log(store)"
+          ]
+        },
+        {
+          "description": "log `store.getState()` to the console",
+          "tests": [
+            "02/05"
+          ],
+          "hints": [
+            "console.log(store.getState())"
+          ]
+        },
+        {
+          "description": "move the initial state to the top of the file, and pass it in as a second param your `createStore`",
+          "tests": [
+            "02/06"
+          ],
+          "hints": [
+            "Move `initialState` above your `store`",
+            "Pass in `initialState` as a second param to `createStore`"
+          ],
+          "actions": [
+            "insert('const initialState = {\n  pokemon: [{\n    id: 1,\n    name: 'Luvdisc',\n    description: 'This heart-shaped POKéMON earned its name by swimming after loving couples it spotted in the ocean’s waves.',\n    votes: 3\n  }, {\n    id: 2,\n    name: 'Trubbish',\n    description: 'Wanting more garbage, they follow people who litter. They always belch poison gas.',\n    votes: 2\n  }, {\n    id: 3,\n    name: 'Stunfisk',\n    description: 'Its skin is very hard, so it is unhurt even if stepped on by sumo wrestlers. It smiles when transmitting electricity.',\n    votes: 0\n  }]\n };\n')"
           ]
         }
       ],
       "onPageComplete": "As you can see, the store is just an object with various methods like \"dispatch\" and \"getState\". Let's see what these methods do in the next step."
+    },
+    {
+      "title": "Actions",
+      "description": "Events that change the data.\n\n##### 1. Actions\n```js\nconst action = { type: 'ACTION_NAME' };\n```\n\n##### 2. Action Creators\n\n```js\nconst actionName = () => ({ type: 'ACTION_NAME' });\n```\n\n##### 3. Action Types\n\n```js\nconst ACTION_NAME = 'ACTION_NAME'\n```",
+      "tasks": [
+        {
+          "description": "create an action called `voteUp`",
+          "tests": [
+            "03/01"
+          ],
+          "actions": [
+            "open('index.js')"
+          ]
+        },
+        {
+          "description": "change `voteUp` into an action creator.",
+          "tests": [
+            "03/02"
+          ]
+        },
+        {
+          "description": "add a param of `id` to your action creator",
+          "tests": [
+            "03/03"
+          ]
+        },
+        {
+          "description": "create an action type for `voteUp`",
+          "hints": [
+            "const VOTE_UP = 'VOTE_UP"
+          ],
+          "tests": [
+            "03/04"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Reducer",
+      "description": "The data transformation\n\n```js\nconst reducer = (state) => {\n  console.log('state: ', state);\n  return state;\n};\n```",
+      "tasks": [
+        {
+          "description": "Create a reducer and call it as the first param in your `createStore`",
+          "tests": [
+            "04/01"
+          ],
+          "actions": [
+            "open('index.js')"
+          ]
+        }
+      ]
     }
   ]
 }

@@ -45,3 +45,35 @@ The "single source of truth".
 ```js
 const store = createStore(reducer, initialState);
 ```
+
+##### Actions
+
+Events that change the data.
+
+##### 1. Actions
+```js
+const action = { type: 'ACTION_NAME' };
+```
+
+##### 2. Action Creators
+
+```js
+const actionName = () => ({ type: 'ACTION_NAME' });
+```
+
+##### 3. Action Types
+
+```js
+const ACTION_NAME = 'ACTION_NAME'
+```
+
+##### Reducer
+
+The data transformation
+
+```js
+const reducer = (state) => {
+  console.log('state: ', state);
+  return state;
+};
+```
