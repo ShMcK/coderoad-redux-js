@@ -1,7 +1,7 @@
 describe('03 voteUp Action Creator', () => {
 
   it('doesn\'t have an id passed in', () => {
-    expect(voteUp().type).to.equal('VOTE_UP');
+    expect(voteUp).to.have.length(1);
   });
 
   it('doesn\'t have a payload with an id', () => {

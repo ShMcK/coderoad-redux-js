@@ -2,6 +2,15 @@
 
 A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux.
 
+<!-- @import('01') -->
+<!-- @import('02') -->
+<!-- @import('04') -->
+<!-- @import('05') -->
+<!-- @import('06') -->
+<!-- @import('07') -->
+<!-- @import('08') -->
+<!-- @import('09') -->
+
 
 ## CodeRoad
 
@@ -18,33 +27,6 @@ CodeRoad is an open-sourced interactive tutorial platform for the Atom Editor. L
 
 
 ## Outline
-
-##### Project Setup
-
-Getting a project setup is rarely easy. Luckily, we have a quick script that can do the work for us.
-
----
-
-Running `> npm run setup` will do the following:
-
-1. Install package dev dependencies
-2. Create an output directory called "dist"
-3. Install "concurrently" & "browser-sync" globally
-4. Run our app in the browser
-
-You'll find this "setup" script located in your *package.json*.
-
----
-
-We'll be installing a lot of scripts from terminal. You may also want to consider installing the atom package ["platformio-ide-terminal"](https://github.com/platformio/platformio-atom-ide-terminal), which provides a terminal inside your editor.
-
-##### The Store
-
-The "single source of truth".
-
-```js
-const store = createStore(reducer, initialState);
-```
 
 ##### Actions
 
@@ -66,45 +48,3 @@ const actionName = () => ({ type: 'ACTION_NAME' });
 ```js
 const ACTION_NAME = 'ACTION_NAME'
 ```
-
-##### Reducer
-
-The data transformation
-
-```js
-const reducer = (state) => {
-  console.log(state);
-  return state;
-};
-```
-
-##### Combine Reducers
-
-Using thunks for async actions.
-
-##### Middleware
-
-Using thunks for async actions.
-
-##### Second Action
-
-Creating a "SORT_BY_POPULARITY" action.
-
-```js
-function sortByVotes(a, b) {
-  switch(true) {
-   case a.votes < b.votes:
-    return 1;
-  case a.votes > b.votes:
-    return -1;
-  default:
-    return 0;
-  }
- }
-```
-
-Sort pokemon by votes
-
-##### Thunk
-
-Using thunks for async actions.
