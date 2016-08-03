@@ -9,3 +9,14 @@ Using thunks for async actions.
 
 + add thunk to applyMiddleware. The logger should always go last
 @test('09/03')
+
++ change the voteUp action creator to return a thunk with the param of "dispatch"
+@test('09/04')
+
++ voteUp should dispatch VOTE_UP
+@test('09/05')
+
++ voteUp should dispatch sortByPopularity after each vote
+@test('09/06')
+
+@onPageComplete('')

@@ -30,4 +30,4 @@ CodeRoad is an open-sourced interactive tutorial platform for the Atom Editor. L
 
 ##### Combine Reducers
 
-Create modular, composable reducers.
+Create modular, composable reducers with `combineReducers`.

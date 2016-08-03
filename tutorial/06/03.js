@@ -1,8 +1,7 @@
-describe('03 reducer', () => {
+describe('03 combineReducers', () => {
 
-  it('should be renamed "pokemon"', () => {
-    expect(reducer).not.to.be.defined;
-    expect(pokemon).to.be.defined;
+  it('should be loaded', () => {
+    expect(combineReducers).to.be.defined;
   });
 
 });

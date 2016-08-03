@@ -12,6 +12,7 @@ Running `> npm run setup` will do the following:
 
 You'll find this "setup" script located in your *package.json*.
 
+
 ---
 
 We'll be installing a lot of scripts from terminal. You may also want to consider installing the atom package ["platformio-ide-terminal"](https://github.com/platformio/platformio-atom-ide-terminal), which provides a terminal inside your editor.
@@ -38,7 +39,7 @@ We'll be installing a lot of scripts from terminal. You may also want to conside
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "mocha-coderoad": "0.9.0"
+    "mocha-coderoad": "0.9.3"
   },
     "devDependencies": {
     "babel-preset-es2015": "^6.9.0",
@@ -60,7 +61,7 @@ We'll be installing a lot of scripts from terminal. You may also want to conside
     }
   },
   "scripts": {
-    "browserify": "browserify src/index.js --extension=.jsx -o dist/bundle.js -t [ babelify --presets [ es2015 react ] ]",
+    "browserify": "browserify index.js --extension=.jsx -o dist/bundle.js -t [ babelify --presets [ es2015 react ] ]",
     "browsersync:reload": "browser-sync reload",
     "browsersync:start": "browser-sync start --server --files 'index.html dist/bundle.js'",
     "build": "npm run browserify",
@@ -68,9 +69,37 @@ We'll be installing a lot of scripts from terminal. You may also want to conside
     "start": "concurrently --kill-others 'npm run build' 'npm run browsersync:start' 'npm run watch'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npm-watch",
-    "setup": "npm install && mkdir -p dist && npm i -g concurrently browser-sync && npm start"
+    "setup": "npm install && mkdir -p dist && npm i -g concurrently browser-sync "
   }
 }
+```  
+))
+
++ Start the app by running `npm start`
+@test('01/02')
+@action(open('index.html'))
+@action(set(
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Worst Pokemon</title>
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
+  <div id="app">
+    <p>Check the console...</p>
+  </div>
+
+  <script src="dist/bundle.js"></script>
+</body>
+</html>
+
 ```  
 ))
 

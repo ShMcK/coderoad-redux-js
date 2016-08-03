@@ -1,13 +1,8 @@
-describe('02 reducers', () => {
+describe('02 reducer', () => {
 
-  it('doesn\'t exist', () => {
-    expect(reducers).to.be.defined;
-  });
-
-  it('should be set to "reducer"', () => {
-    if (process.env.TASK_POSITION === '2') {
-      expect(reducers).to.equal(reducer);
-    }
+  it('should be renamed "pokemon"', () => {
+    expect(reducer).not.to.be.defined;
+    expect(pokemon).to.be.defined;
   });
 
 });

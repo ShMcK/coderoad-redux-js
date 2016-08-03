@@ -6,27 +6,27 @@
   "pages": [
     {
       "title": "Combine Reducers",
-      "description": "Create modular, composable reducers.",
+      "description": "Create modular, composable reducers with `combineReducers`.",
       "tasks": [
         {
-          "description": "import `combineReducers` from redux",
+          "description": "create a new `const reducers` and set it equal to \"reducer\". Pass \"reducers\" into your store for now, instead of \"reducer\". We'll use combineReducers shortly, but let's not break the app yet.",
           "tests": [
             "06/01"
-          ],
-          "hints": [
-            "Try this: `import { combineReducers } from 'redux';`"
           ]
         },
         {
-          "description": "create a new `const reducers` and set it to \"reducer\". Pass \"reducers\" into your store for now, instead of \"reducer\". We'll use combineReducers shortly, but let's not break the app yet.",
+          "description": "We're going to create more than one reducer. They can't all be called \"reducer\", so rename your original reducer \"pokemon\". Make sure to set reducers equal to the new name as well.",
           "tests": [
             "06/02"
           ]
         },
         {
-          "description": "We're going to create more than one reducer. They can't all be called \"reducer\", so rename your reducer 'pokemon'.",
+          "description": "import `combineReducers` from redux",
           "tests": [
             "06/03"
+          ],
+          "hints": [
+            "Try this: `import { combineReducers } from 'redux';`"
           ]
         },
         {
