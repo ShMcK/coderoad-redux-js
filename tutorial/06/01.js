@@ -12,11 +12,8 @@ describe('01 reducers', () => {
     // test must be support future state of reducers
     // reducer will be renamed "pokemon", and then
     // use combineReducers, which will be hard to track
-    console.log(reducer);
-    if (reducer) {
+    if (reducers.toString().match(/=\s?reducer/)) {
       expect(reducers).to.equal(reducer);
-    } else {
-      expect(true).to.be.true;
     }
   });
 
