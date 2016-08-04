@@ -12,7 +12,7 @@ describe('01 reducers', () => {
     // test must be support future state of reducers
     // reducer will be renamed "pokemon", and then
     // use combineReducers, which will be hard to track
-    if (reducers.toString().match(/=\s?reducer/)) {
+    if (reducers.toString().match(/= reducer;?$/m)) {
       expect(reducers).to.equal(reducer);
     }
   });
