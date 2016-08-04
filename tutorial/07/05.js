@@ -1,7 +1,3 @@
-describe('05 applyMiddleware logger', () => {
-
-  it('', () => {
-
-  });
+describe('05 reducer', () => {
 
 });

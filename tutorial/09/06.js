@@ -1,7 +1,5 @@
-describe('06 voteUp', () => {
+describe('06 sortByKey function', () => {
 
-  it('should dispatch a SORT_BY_POPULARITY action', () => {
-    
-  });
+
 
 });

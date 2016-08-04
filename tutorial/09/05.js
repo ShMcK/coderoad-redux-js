@@ -1,7 +1,5 @@
-describe('05 voteUp', () => {
+describe('05 sortByVotes function', () => {
 
-  it('should dispatch a VOTE_UP action', () => {
-    
-  });
+
 
 });

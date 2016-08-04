@@ -1,5 +1,5 @@
-describe('03 applyMiddleware thunk', () => {
+describe('03 dispatch sortByPopularity action', () => {
 
-
+  
 
 });

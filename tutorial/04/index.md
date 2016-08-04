@@ -38,3 +38,5 @@ const reducer = (state) => {
 
 + add a switch case for `VOTE_UP`. For now, just console.log the `id` of the action passed in and return the default state again. Tip: destructuring: `const { id } = action.payload;`
 @test('04/07')
+
+@onPageComplete('There are a few "gotchas" that come up with reducers. Reducers must be "pure" functions, let's find out how to accomplish this in the next step')

@@ -1,7 +1,5 @@
-describe('04 voteUp', () => {
+describe('04 SORT_BY_POPULARITY reducer case', () => {
 
-  it('should return a thunk with a "dispatch" param', () => {
-    
-  });
+
 
 });

@@ -1,16 +1,11 @@
-var chai = require('chai');
-var spies = require('chai-spies');
-var expect = chai.expect;
-chai.use(spies);
+var expect = require('chai').expect;
 
-var spy = chai.spy.on(console, 'log');
+/// load('pokemon/index.js')
 
-/// load('index.js')
+describe('01 "pokemon" folder', () => {
 
-describe('01 applyMiddleware', () => {
+  it('doesn\'t exist', () => {
 
-  it('should be imported', () => {
-    expect(applyMiddleware).to.be.defined;
   });
 
 });

@@ -1,4 +1,4 @@
-## Middleware
+## Logger
 Using thunks for async actions.
 
 + import `applyMiddleware`

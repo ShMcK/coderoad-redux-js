@@ -45,5 +45,11 @@ const reducers = combineReducers({
 
 + We no longer pass the entire "state" inside of our reducers, only the slice of our state the reducer needs to know. Rename all references to "state" inside of your "pokemon" reducer to what it really is now: "pokemon".
 @test('06/07')
+@hint('Change three references to "pokemon" in your pokemon reducer')
+@hint('First: 'const pokemon = (pokemon = defaultPokemon, action) => {`')
+@hint('Second: `const nextPokemon = pokemon.map(p => {`')
+@hint('Third: `default: return pokemon;`')
 
-@onPageComplete('The state remains the same as before, but now ')
+
+
+@onPageComplete('The state remains the same, but now our reducers are much more modular. In the next step, we will separate our code into it's own file')
