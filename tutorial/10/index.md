@@ -3,6 +3,7 @@ Using thunks for async actions.
 
 + install "redux-thunk" as a dependency
 @test('10/01')
+@action(open('index.js'))
 
 + import thunk from "redux-thunk"
 @test('10/02')

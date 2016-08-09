@@ -1,6 +1,8 @@
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
-/// load('index.js')
+const index = require('BASE/index.js');
+
+const reducer = index.__get__('reducer');
 
 describe('01 the pure reducer', () => {
 

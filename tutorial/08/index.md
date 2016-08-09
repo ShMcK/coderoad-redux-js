@@ -1,8 +1,9 @@
 ## Logger
 The power of middleware with "redux-logger".
 
-+ import `applyMiddleware`
++ import `applyMiddleware` in "index.js"
 @test('08/01')
+@action(open('index.js'))
 
 + set the second param in createStore to `applyMiddleware()`
 @test('08/02')

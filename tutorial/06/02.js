@@ -1,6 +1,5 @@
 describe('02 "pokemon"', () => {
 
-
   it('should be the reducer new name', () => {
     expect(pokemon).to.be.defined;
   });

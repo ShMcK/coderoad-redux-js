@@ -1,11 +1,13 @@
-var chai = require('chai');
-var spies = require('chai-spies');
-var expect = chai.expect;
+const chai = require('chai');
+const spies = require('chai-spies');
+const expect = chai.expect;
 chai.use(spies);
 
-var log = chai.spy.on(console, 'log');
+let log = chai.spy.on(console, 'log');
 
-/// load('index.js')
+const index = require('BASE/index.js');
+
+const reducer = index.__get__('reducer');
 
 describe('01 reducer', () => {
 

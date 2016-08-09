@@ -1,14 +1,17 @@
 describe('05 import', () => {
-  // matches: import { default as pokemon, voteUp, sortByPopularity } from './pokemon';
-  // as well as various combinations
+
+  // read index.js path for regexing for import and moved files
+  const indexJsPath = resolve(process.env.DIR, 'index.js');
+  const indexJsFinal = readFileSync(indexJsPath, 'utf8');
+
   it('`voteUp` from "./pokemon" in "index.js"', () => {
     const regex = /import\s?\{\s?(.+,?\s?|voteUp,?\s?|sortByPopularity,?\s?)+\s?\}\s?from\s?[\"\']\.?\/?pokemon(\/index(\.js)?)?[\"\'];?/m;
-    expect(indexJs).to.match(regex);
+    expect(indexJsFinal).to.match(regex);
   });
 
   it('`default as pokemon` from "./pokemon" in "index.js"', () => {
     const regex = /import\s?\{\s?(.+,?\s?|default as pokemon,?\s?|sortByPopularity,?\s?)+\s?\}\s?from\s?[\"\']\.?\/?pokemon(\/index(\.js)?)?[\"\'];?/m;
-    expect(indexJs).to.match(regex);
+    expect(indexJsFinal).to.match(regex);
   });
 
 });

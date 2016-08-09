@@ -1,13 +1,15 @@
-var chai = require('chai');
-var spies = require('chai-spies');
-var expect = chai.expect;
+const chai = require('chai');
+const spies = require('chai-spies');
+const expect = chai.expect;
 chai.use(spies);
 
-var spy = chai.spy.on(console, 'log');
+let spy = chai.spy.on(console, 'log');
 
-/// load('index.js')
+const pokemonIndexJs = require('BASE/pokemon/index.js');
 
 describe('01 SORT_BY_POPULARITY action type', () => {
+
+  const SORT_BY_POPULARITY = pokemonIndexJs.__get__('SORT_BY_POPULARITY');
 
   it('doesn\'t exist', () => {
     expect(SORT_BY_POPULARITY).to.be.defined;

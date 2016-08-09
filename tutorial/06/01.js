@@ -1,6 +1,11 @@
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
-/// load('index.js')
+const index = require('BASE/index.js');
+
+const reducers = index.__get__('reducers');
+const store = index.__get__('store');
+const pokemon = index.__get__('pokemon');
+const defaultPokemon = index.__get__('defaultPokemon');
 
 describe('01 reducers', () => {
 

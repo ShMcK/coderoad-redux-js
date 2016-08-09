@@ -14,10 +14,10 @@
   },
   "config": {
     "dir": "tutorial",
-    "testSuffix": ".js",
+    "edit": true,
     "language": "JS",
     "runner": "mocha-coderoad",
-    "edit": true
+    "testSuffix": ".js"
   },
   "dependencies": {
     "mocha-coderoad": "0.9.1"

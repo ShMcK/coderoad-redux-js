@@ -1,16 +1,9 @@
-var expect = require('chai').expect;
-var { resolve } = require('path');
-var { readFileSync } = require('fs');
+const expect = require('chai').expect;
+const { resolve } = require('path');
+const { readFileSync } = require('fs');
 
-/// load('pokemon/index.js')
-
-// read index.js path for regexing for import and moved files
-const indexJsPath = resolve(process.env.DIR, 'index.js');
-const indexJs = readFileSync(indexJsPath, 'utf8');
-
-// read pokemon/index.js path for regexing for export
-const pokemonJsPath = resolve(process.env.DIR, 'pokemon', 'index.js');
-const pokemonJs = readFileSync(pokemonJsPath, 'utf8');
+const indexJs = require('BASE/index.js');
+const pokemonIndexJs = require('BASE/pokemon/index.js');
 
 describe('01 "pokemon" folder', () => {
 

@@ -1,6 +1,8 @@
 const expect = require('chai').expect;
 
-/// load('index.js')
+const index = require('BASE/index.js');
+
+const voteUp = index.__get__('voteUp');
 
 describe('01 voteUp Action', () => {
 
