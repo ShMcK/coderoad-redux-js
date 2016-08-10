@@ -22,7 +22,7 @@ describe('01 the pure reducer', () => {
   const testAction = ({ type: 'VOTE_UP', payload: { id: 100 } });
 
   it('should have a reducer', () => {
-    expect(reducer).to.be.defined;
+    expect(reducer).to.not.be.undefined;
   })
 
   it('should increment the votes matching the id only', () => {

@@ -7,7 +7,7 @@ const voteUp = indexJs.__get__('voteUp');
 describe('01 voteUp Action', () => {
 
   it('isn\t created', () => {
-    expect(voteUp).to.be.defined;
+    expect(voteUp).to.not.be.undefined;
   });
 
   if (typeof voteUp === 'function') {

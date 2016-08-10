@@ -12,7 +12,7 @@ describe('01 applyMiddleware', () => {
   const applyMiddleware = indexJs.__get__('applyMiddleware');
 
   it('should be imported', () => {
-    expect(applyMiddleware).to.be.defined;
+    expect(applyMiddleware).to.not.be.undefined;
   });
 
 });

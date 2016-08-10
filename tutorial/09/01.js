@@ -12,7 +12,7 @@ describe('01 SORT_BY_POPULARITY action type', () => {
   const SORT_BY_POPULARITY = pokemonIndexJs.__get__('SORT_BY_POPULARITY');
 
   it('doesn\'t exist', () => {
-    expect(SORT_BY_POPULARITY).to.be.defined;
+    expect(SORT_BY_POPULARITY).to.not.be.undefined;
   });
 
   it('should equal the string "SORT_BY_POPULARITY"', () => {

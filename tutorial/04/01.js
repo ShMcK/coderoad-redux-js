@@ -12,7 +12,7 @@ const reducer = indexJs.__get__('reducer');
 describe('01 reducer', () => {
 
   it('doesn\'t exist', () => {
-    expect(reducer).to.be.defined;
+    expect(reducer).to.not.be.undefined;
   });
 
   it('doesn\'t take a "state" param', () => {

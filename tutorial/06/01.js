@@ -10,7 +10,7 @@ const defaultPokemon = indexJs.__get__('defaultPokemon');
 describe('01 reducers', () => {
 
   it('doesn\'t exist', () => {
-    expect(reducers).to.be.defined;
+    expect(reducers).to.not.be.undefined;
   });
 
   it('should be set to "reducer"', () => {

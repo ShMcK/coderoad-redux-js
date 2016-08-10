@@ -1,7 +1,7 @@
 describe('02 "pokemon"', () => {
 
   it('should be the reducer new name', () => {
-    expect(pokemon).to.be.defined;
+    expect(pokemon).to.not.be.undefined;
   });
 
   it('should be the reducer function', () => {

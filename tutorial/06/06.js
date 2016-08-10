@@ -1,7 +1,7 @@
 describe('06 defaultPokemon', () => {
 
   it('doesn\'t exist', () => {
-    expect(defaultPokemon).to.be.defined;
+    expect(defaultPokemon).to.not.be.undefined;
   });
 
   it('should be a list of three pokemon', () => {
