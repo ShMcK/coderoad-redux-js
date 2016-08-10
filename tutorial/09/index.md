@@ -18,7 +18,7 @@ Sort pokemon by votes
 
 + create an action type for 'SORT_BY_POPULARITY'
 @test('09/01')
-@action(open('pokemon/index.js'))
+@action(open('src/pokemon/index.js'))
 
 + create an action creator called 'sortByPopularity'
 @test('09/02')

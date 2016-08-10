@@ -18,14 +18,16 @@ You'll find this "setup" script located in your *package.json*.
 We'll be installing a lot of scripts from terminal. You may also want to consider installing the atom package ["platformio-ide-terminal"](https://github.com/platformio/platformio-atom-ide-terminal), which provides a terminal inside your editor.
 
 
-+ Open a terminal in this project directory and run `npm run setup`.
++ Open a terminal in this project directory and run `npm run setup`. Save to continue.
 @test('01/01')
-@hint('Open a terminal in this project directory and run `npm run setup` to get setup')
+@hint('Open up Bash (terminal) in this project directory and run `npm run setup` to get setup')
+@hint('If you're using Windows, you may want to use Git Bash')
+@hint('If your setup fails, try running `sudo npm run setup`')
 @action(open('package.json'))
 @action(set(
 ```
 {
-  "name": "coderoad-redux-js",
+  "name": "coderoad-redux-js-demo",
   "version": "0.1.0",
   "description": "Coderoad tutorial for using redux with raw javascript",
   "bugs": {
@@ -39,7 +41,8 @@ We'll be installing a lot of scripts from terminal. You may also want to conside
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "mocha-coderoad": "0.9.3"
+    "mocha-coderoad": "0.9.3",
+    "coderoad-redux-js": "0.1.0"
   },
     "devDependencies": {
     "babel-preset-es2015": "^6.9.0",
@@ -61,7 +64,7 @@ We'll be installing a lot of scripts from terminal. You may also want to conside
     }
   },
   "scripts": {
-    "browserify": "browserify index.js --extension=.jsx -o dist/bundle.js -t [ babelify --presets [ es2015 react ] ]",
+    "browserify": "browserify src/index.js --extension=.jsx -o dist/bundle.js -t [ babelify --presets [ es2015 react ] ]",
     "browsersync:reload": "browser-sync reload",
     "browsersync:start": "browser-sync start --server --files 'index.html dist/bundle.js'",
     "build": "npm run browserify",
@@ -69,13 +72,13 @@ We'll be installing a lot of scripts from terminal. You may also want to conside
     "start": "concurrently --kill-others 'npm run build' 'npm run browsersync:start' 'npm run watch'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npm-watch",
-    "setup": "npm install && mkdir -p dist && npm i -g concurrently browser-sync "
+    "setup": "npm i && mkdir -p dist && mkdir -p src && touch src/index.js && npm i -g concurrently browser-sync "
   }
 }
 ```  
 ))
 
-+ Start the app by running `npm start`
++ Start the app by running `npm start`. Save to continue.
 @test('01/02')
 @action(open('index.html'))
 @action(set(
@@ -93,6 +96,7 @@ We'll be installing a lot of scripts from terminal. You may also want to conside
 </head>
 <body>
   <div id="app">
+    <h1>Welcome!</h1>
     <p>Check the console...</p>
   </div>
 

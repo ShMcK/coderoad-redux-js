@@ -5,7 +5,7 @@ Create modular, composable reducers with `combineReducers`.
 
 + create a new `const reducers` and set it equal to "reducer". Pass "reducers" into your store for now, instead of "reducer". We'll use combineReducers shortly, but let's not break the app yet.
 @test('06/01')
-@action(open('index.js'))
+@action(open('src/index.js'))
 @hint('First, try this: `const reducers = reducer;`')
 @hint('Second, try this: `const store = createStore(reducers, initialState);`')
 

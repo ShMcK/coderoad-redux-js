@@ -5,9 +5,9 @@ The "single source of truth".
 const store = createStore(reducer, initialState);
 ```
 
-+ install Redux.
++ install Redux as a dependency.
 @hint('Run `npm install --save redux`.')
-@action(open('index.js'))
+@action(open('src/index.js'))
 @test('02/01')
 
 + import `createStore` from the redux module.

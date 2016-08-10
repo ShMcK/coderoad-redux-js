@@ -1,20 +1,52 @@
 {
   "info": {
     "title": "CodeRoad Redux JS Tutorial",
-    "description": "A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux.\n\n<!-- @import('01') -->\n<!-- @import('03') -->\n<!-- @import('04') -->\n<!-- @import('05') -->\n<!-- @import('06') -->\n<!-- @import('07') -->\n<!-- @import('08') -->\n<!-- @import('09') -->\n<!-- @import('10') -->"
+    "description": "A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux.\n\n<!-- @import('08') -->\n<!-- @import('09') -->\n<!-- @import('10') -->"
   },
   "pages": [
+    {
+      "title": "Project Setup",
+      "description": "Getting a project setup is rarely easy. Luckily, we have a quick script that can do the work for us.\n\n---\n\nRunning `> npm run setup` will do the following:\n\n1. Install package dev dependencies\n2. Create an output directory called \"dist\"\n3. Install \"concurrently\" & \"browser-sync\" globally\n4. Run our app in the browser\n\nYou'll find this \"setup\" script located in your *package.json*.\n\n\n---\n\nWe'll be installing a lot of scripts from terminal. You may also want to consider installing the atom package [\"platformio-ide-terminal\"](https://github.com/platformio/platformio-atom-ide-terminal), which provides a terminal inside your editor.",
+      "tasks": [
+        {
+          "description": "Open a terminal in this project directory and run `npm run setup`. Save to continue.",
+          "tests": [
+            "01/01"
+          ],
+          "hints": [
+            "Open up Bash (terminal) in this project directory and run `npm run setup` to get setup",
+            "If you're using Windows, you may want to use Git Bash",
+            "If your setup fails, try running `sudo npm run setup`"
+          ],
+          "actions": [
+            "open('package.json')",
+            "set('{\n  \"name\": \"coderoad-redux-js-demo\",\n  \"version\": \"0.1.0\",\n  \"description\": \"Coderoad tutorial for using redux with raw javascript\",\n  \"bugs\": {\n    \"url\": \"https://github.com/shmck/coderoad-redux-js\"\n  },\n  \"license\": \"ISC\",\n  \"author\": \"Shawn McKay <shawn.j.mckay@gmail.com>\",\n  \"main\": \"index.js\",\n  \"repository\": \"https://github.com/shmck/coderoad-redux-js\",\n  \"scripts\": {\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n  \"dependencies\": {\n    \"mocha-coderoad\": \"0.9.3\",\n    \"coderoad-redux-js\": \"0.1.0\"\n  },\n    \"devDependencies\": {\n    \"babel-preset-es2015\": \"^6.9.0\",\n    \"babel-preset-react\": \"^6.11.1\",\n    \"babelify\": \"^7.3.0\",\n    \"browser-sync\": \"^2.13.0\",\n    \"concurrently\": \"^2.2.0\",\n    \"npm-watch\": \"^0.1.5\",\n    \"coderoad-redux-js\": \"^0.1.0\"\n  },\n  \"watch\": {\n    \"reload\": {\n      \"patterns\": [\n        \"src\"\n      ],\n      \"extensions\": \"js,jsx,css,html,scss\",\n      \"ignore\": \"node_modules\",\n      \"quiet\": false\n    }\n  },\n  \"scripts\": {\n    \"browserify\": \"browserify src/index.js --extension=.jsx -o dist/bundle.js -t [ babelify --presets [ es2015 react ] ]\",\n    \"browsersync:reload\": \"browser-sync reload\",\n    \"browsersync:start\": \"browser-sync start --server --files 'index.html dist/bundle.js'\",\n    \"build\": \"npm run browserify\",\n    \"reload\": \"npm run browserify && npm run browsersync:reload\",\n    \"start\": \"concurrently --kill-others 'npm run build' 'npm run browsersync:start' 'npm run watch'\",\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\",\n    \"watch\": \"npm-watch\",\n    \"setup\": \"npm i && mkdir -p dist && mkdir -p src && touch src/index.js && npm i -g concurrently browser-sync \"\n  }\n}\n')"
+          ]
+        },
+        {
+          "description": "Start the app by running `npm start`. Save to continue.",
+          "tests": [
+            "01/02"
+          ],
+          "actions": [
+            "open('index.html')",
+            "set('<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Worst Pokemon</title>\n  <link\n    rel=\"stylesheet\"\n    href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\"\n    crossorigin=\"anonymous\"\n  />\n</head>\n<body>\n  <div id=\"app\">\n    <p>Check the console...</p>\n  </div>\n\n  <script src=\"dist/bundle.js\"></script>\n</body>\n</html>\n\n')"
+          ]
+        }
+      ],
+      "onPageComplete": "Continue to start working with Redux"
+    },
     {
       "title": "The Store",
       "description": "The \"single source of truth\".\n\n```js\nconst store = createStore(reducer, initialState);\n```",
       "tasks": [
         {
-          "description": "install Redux.",
+          "description": "install Redux as a dependency.",
           "hints": [
             "Run `npm install --save redux`."
           ],
           "actions": [
-            "open('index.js')"
+            "open('src/index.js')"
           ],
           "tests": [
             "02/01"
@@ -72,6 +104,265 @@
         }
       ],
       "onPageComplete": "As you can see, the store is just an object with various methods like \"dispatch\" and \"getState\". Let's see what these methods do in the next step."
+    },
+    {
+      "title": "Actions",
+      "description": "Events that change the data.\n\n##### 1. Actions\n```js\nconst action = { type: 'ACTION_NAME' };\n```\n\n##### 2. Action Creators\n\n```js\nconst actionName = () => ({ type: 'ACTION_NAME' });\n```\n\n##### 3. Action Types\n\n```js\nconst ACTION_NAME = 'ACTION_NAME'\n```",
+      "tasks": [
+        {
+          "description": "create an action called `voteUp`",
+          "tests": [
+            "03/01"
+          ],
+          "actions": [
+            "open('src/index.js')"
+          ]
+        },
+        {
+          "description": "change `voteUp` into an action creator.",
+          "tests": [
+            "03/02"
+          ],
+          "hints": [
+            "wrap your output object in round brackets",
+            "Try this: `const voteUp = () => ({ type: \"VOTE_UP\" });`"
+          ]
+        },
+        {
+          "description": "add a param of `id` to your action creator",
+          "tests": [
+            "03/03"
+          ]
+        },
+        {
+          "description": "create an action type for `voteUp`",
+          "hints": [
+            "const VOTE_UP = \"VOTE_UP\""
+          ],
+          "tests": [
+            "03/04"
+          ]
+        },
+        {
+          "description": "Use the action type inside your `voteUp` action creator. Notice how your editor may autocomplete the action type.",
+          "tests": [
+            "03/05"
+          ],
+          "hints": [
+            "change \"VOTE_UP\" to use the constant VOTE_UP",
+            "Try this: `const voteUp = () => ({ type: VOTE_UP });`"
+          ]
+        }
+      ],
+      "onPageComplete": "Excellent! In the next unit we will look at how these actions can be used to transform data using a \"reducer\""
+    },
+    {
+      "title": "Reducer",
+      "description": "The data transformation\n\n```js\nconst reducer = (state) => {\n  console.log(state);\n  return state;\n};\n```",
+      "tasks": [
+        {
+          "description": "Extract the `state => state` function in create store, and call in a new function called \"reducer\".",
+          "tests": [
+            "04/01"
+          ],
+          "actions": [
+            "open('src/index.js')"
+          ]
+        },
+        {
+          "description": "Log the state inside of your reducer. What does it look like?",
+          "tests": [
+            "04/02"
+          ],
+          "hints": [
+            "Add a `console.log` statement inside of your reducer function",
+            "Try this:```js\nconst reducer = (state) => {\n  console.log(state);\n  return state;\n};\n```"
+          ]
+        },
+        {
+          "description": "Pass an action as a second param to the reducer",
+          "tests": [
+            "04/03"
+          ]
+        },
+        {
+          "description": "Dispatch two voteUp actions through the reducer: `store.dispatch(voteUp(2))`. Change your log statement inside of your reducer to look like this: `console.log('state: ', state, 'action: ', action)`",
+          "tests": [
+            "04/04"
+          ]
+        },
+        {
+          "description": "Create a `switch` statement and pass in `action.type`, the default return should return `state`",
+          "tests": [
+            "04/05"
+          ]
+        },
+        {
+          "description": "The `switch` statement should have a `default` case that returns the state",
+          "tests": [
+            "04/06"
+          ]
+        },
+        {
+          "description": "add a switch case for `VOTE_UP`. For now, just console.log the `id` of the action passed in and return the default state again. Tip: destructuring: `const { id } = action.payload;`",
+          "tests": [
+            "04/07"
+          ]
+        }
+      ],
+      "onPageComplete": "There are a few \"gotchas\" that come up with reducers. Reducers must be \"pure\" functions, let's find out how to accomplish this in the next step"
+    },
+    {
+      "title": "Pure Functions",
+      "description": "Reducers must be pure functions\n\nState is \"read only\".\n\nNotes\n```js\nconst nextPokemon = state.pokemon.map(p => {\n    if (id === p.id) {\n      p.votes += 1;\n    }\n    return p;\n  });\n  return {\n   pokemon: nextPokemon\n };\n ```",
+      "tasks": [
+        {
+          "description": "Return a new list of Pokemon after incrementing \"votes\" of the pokemon with the matching \"id\"",
+          "tests": [
+            "05/01"
+          ],
+          "actions": [
+            "open('src/index.js')"
+          ]
+        },
+        {
+          "description": "Let's make a test to see that we are truly returning a new state. Call `Object.freeze()` on your `initialState`. `freeze` makes an object immutable - meaning the object can not be changed. And yet your reducer should still work, since it returns a new state each call.",
+          "tests": [
+            "05/02"
+          ]
+        },
+        {
+          "description": "What if we were dealing with multiple keys on the state. We'd have to ensure that our changes return a complete new state each time. Use `Object.assign`",
+          "tests": [
+            "05/03"
+          ],
+          "hints": [
+            "return `Object.assign({}, { pokemon: nextPokemon });`"
+          ]
+        }
+      ],
+      "onPageComplete": "Now that you have an idea of how reducers work. Next we can look at how to create multiple, modular reducers."
+    },
+    {
+      "title": "Combine Reducers",
+      "description": "Create modular, composable reducers with `combineReducers`.",
+      "tasks": [
+        {
+          "description": "create a new `const reducers` and set it equal to \"reducer\". Pass \"reducers\" into your store for now, instead of \"reducer\". We'll use combineReducers shortly, but let's not break the app yet.",
+          "tests": [
+            "06/01"
+          ],
+          "actions": [
+            "open('src/index.js')"
+          ],
+          "hints": [
+            "First, try this: `const reducers = reducer;`",
+            "Second, try this: `const store = createStore(reducers, initialState);`"
+          ]
+        },
+        {
+          "description": "We're going to create more than one reducer. They can't all be called \"reducer\", so rename your original reducer \"pokemon\". Make sure to set reducers equal to the new name as well.",
+          "tests": [
+            "06/02"
+          ],
+          "hints": [
+            "First, rename \"pokemon\" to \"reducer\"",
+            "Like this: `const pokemon = (state, action) => {...}`",
+            "Second, change your \"reducers\" to equal \"pokemon\"",
+            "Like this: `const reducers = pokemon;`"
+          ]
+        },
+        {
+          "description": "import `combineReducers` from redux",
+          "tests": [
+            "06/03"
+          ],
+          "hints": [
+            "Try this: `import { combineReducers } from 'redux';`"
+          ]
+        },
+        {
+          "description": "combineReducers(), and pass in your reducer ({ pokemon })",
+          "tests": [
+            "06/04"
+          ],
+          "hints": [
+            "Try this: ```const reducers = combineReducers({\n  pokemon\n});\n```"
+          ]
+        },
+        {
+          "description": "We're going to shake things up now to make our reducers more composable. Set the initial state inside of your `createStore` to simply be an empty object (`{}`)",
+          "tests": [
+            "06/05"
+          ]
+        },
+        {
+          "description": "Thanks to `combineReducers` we can now define the initial state inside of each reducer. Get rid of \"initialState\", but keep the \"pokemon\" key and call it \"defaultPokemon\". It should be an array with three pokemon. Finally, pass the `defaultPokemon` as the default state in the pokemon reducer. You can use ES6 default params.",
+          "tests": [
+            "06/06"
+          ],
+          "hints": [
+            "Like this:`const defaultPokemon = [{\n  id: 1,\n  name: 'Luvdisc',\n  ...\n`",
+            "Default params work like this: `fn(param1 = defaultParam, param2)`",
+            "Like this: `const pokemon = (state = defaultPokemon, action) => {`"
+          ]
+        },
+        {
+          "description": "We no longer pass the entire \"state\" inside of our reducers, only the slice of our state the reducer needs to know. Rename all references to \"state\" inside of your \"pokemon\" reducer to what it really is now: \"pokemon\".\nRefactor your project into different files.",
+          "tests": [
+            "06/07"
+          ],
+          "hints": [
+            "Change three references to \"pokemon\" in your pokemon reducer",
+            "First: 'const pokemon = (pokemon = defaultPokemon, action) => {`",
+            "'Second: `const nextPokemon = pokemon.map(p => {`')@hint('Third: `default: return pokemon;`')\n\n\n\n\n## File Structur"
+          ]
+        },
+        {
+          "description": "create a folder in your base directory called \"pokemon\" and add a file inside called \"index.js\"",
+          "tests": [
+            "07/01"
+          ],
+          "hints": [
+            "create \"src/pokemon/index.js\""
+          ]
+        },
+        {
+          "description": "take your `VOTE_UP` action type from \"index.js\" and put it in \"src/pokemon/index.js\"",
+          "tests": [
+            "07/02"
+          ],
+          "hints": [
+            "\"src/pokemon/index.js\" should have `const VOTE_UP = 'VOTE_UP';`"
+          ]
+        },
+        {
+          "description": "take your `voteUp` action creator from \"src/index.js\" and put it in \"src/pokemon/index.js\". Export it as a [\"named\" export](https://developer.mozilla.org/en/docs/web/javascript/reference/statements/export).",
+          "tests": [
+            "07/03"
+          ],
+          "hints": [
+            "move `voteUp` into \"src/pokemon/index.js\"",
+            "\"src/pokemon/index.js\" should have `const voteUp = id => ({ type: VOTE_UP, payload: { id } });`"
+          ]
+        },
+        {
+          "description": "take your `pokemon` reducer from \"src/index.js\" and put it in \"src/pokemon/index.js\". Export the reducer as a \"default\" export",
+          "tests": [
+            "07/04"
+          ]
+        },
+        {
+          "description": "in your \"src/index.js\" file, import the action creators and reducer in one line of code.",
+          "tests": [
+            "07/05"
+          ],
+          "hints": [
+            "Try this: `import { default as pokemon, voteUp } from './pokemon';`"
+          ]
+        }
+      ],
+      "onPageComplete": ""
     }
   ]
 }

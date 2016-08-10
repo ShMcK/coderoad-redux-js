@@ -20,7 +20,7 @@ const ACTION_NAME = 'ACTION_NAME'
 
 + create an action called `voteUp`
 @test('03/01')
-@action(open('index.js'))
+@action(open('src/index.js'))
 
 + change `voteUp` into an action creator.
 @test('03/02')

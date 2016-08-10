@@ -18,7 +18,7 @@ const nextPokemon = state.pokemon.map(p => {
 
 + Return a new list of Pokemon after incrementing "votes" of the pokemon with the matching "id"
 @test('05/01')
-@action(open('index.js'))
+@action(open('src/index.js'))
 
 + Let's make a test to see that we are truly returning a new state. Call `Object.freeze()` on your `initialState`. `freeze` makes an object immutable - meaning the object can not be changed. And yet your reducer should still work, since it returns a new state each call.
 @test('05/02')

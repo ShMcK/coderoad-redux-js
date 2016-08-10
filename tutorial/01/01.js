@@ -6,6 +6,10 @@ describe('01 setup', () => {
 		expect(exists('dist')).to.be.true;
 	});
 
+	it('src directory doesn\'t exist. Run `npm run setup`', () => {
+		expect(exists('src')).to.be.true;
+	});
+
 	it('hasn\'t installed any dependencies. Run `npm run setup`', () => {
 		expect(exists('node_modules')).to.be.true;
 	});

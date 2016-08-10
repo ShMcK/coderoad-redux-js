@@ -10,7 +10,7 @@ const reducer = (state) => {
 
 + Extract the `state => state` function in create store, and call in a new function called "reducer".
 @test('04/01')
-@action(open('index.js'))
+@action(open('src/index.js'))
 
 + Log the state inside of your reducer. What does it look like?
 @test('04/02')
