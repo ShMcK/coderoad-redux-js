@@ -18,7 +18,7 @@ const actionName = () => ({ type: 'ACTION_NAME' });
 const ACTION_NAME = 'ACTION_NAME'
 ```
 
-+ create an action called `voteUp`
++ create an action called `voteUp` and a type of 'VOTE_UP'
 @test('03/01')
 @action(open('src/index.js'))
 
@@ -27,7 +27,7 @@ const ACTION_NAME = 'ACTION_NAME'
 @hint('wrap your output object in round brackets')
 @hint('Try this: `const voteUp = () => ({ type: "VOTE_UP" });`')
 
-+ add a param of `id` to your action creator
++ add a param of `id` to your action creator, and a payload of "id"
 @test('03/03')
 
 + create an action type for `voteUp`

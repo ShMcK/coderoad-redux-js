@@ -1,5 +1,8 @@
 describe('04 console.log', () => {
 
+  const initialState = indexJs.__get__('initialState');
+  const voteUp = indexJs.__get__('voteUp');
+
   it('should be called with state and action as in the example', () => {
     const regex = / console.log\(\s?[\'\"]state:\s?[\'\"],\s?state,\s?[\'\"]action:\s?[\'\"],\s?action\s?\)/;
     const string = reducer.toString();
