@@ -1,5 +1,3 @@
-const store = indexJs.__get__('store');
-
 describe('03 store', () => {
 
   it('isn\'t defined. `const store`', () => {

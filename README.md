@@ -101,7 +101,3 @@ const nextPokemon = state.pokemon.map(p => {
    pokemon: nextPokemon
  };
  ```
-
-##### Combine Reducers
-
-Create modular, composable reducers with `combineReducers`.

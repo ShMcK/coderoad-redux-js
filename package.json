@@ -20,6 +20,6 @@
     "testSuffix": ".js"
   },
   "dependencies": {
-    "mocha-coderoad": "0.9.1"
+    "mocha-coderoad": "0.10.0"
   }
 }

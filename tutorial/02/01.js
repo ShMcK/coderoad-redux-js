@@ -6,6 +6,7 @@ chai.use(spies);
 let spy = chai.spy.on(console, 'log');
 
 const indexJs = require('BASE/src/index.js');
+const store = indexJs.__get__('store');
 
 describe('01 Redux', () => {
 
