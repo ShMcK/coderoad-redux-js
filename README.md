@@ -2,10 +2,6 @@
 
 A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux.
 
-<!-- @import('08') -->
-<!-- @import('09') -->
-<!-- @import('10') -->
-
 
 ## CodeRoad
 
@@ -101,3 +97,44 @@ const nextPokemon = state.pokemon.map(p => {
    pokemon: nextPokemon
  };
  ```
+
+##### Combine Reducers
+
+Create modular, composable reducers with `combineReducers`.
+
+Explanation here.
+
+##### File Structure
+
+Refactor your project into different files.
+
+Explanation here
+
+##### Logger
+
+The power of middleware with "redux-logger".
+
+Explanation here.
+
+##### Second Action
+
+Creating a "SORT_BY_POPULARITY" action.
+
+```js
+function sortByVotes(a, b) {
+  switch(true) {
+   case a.votes < b.votes:
+    return 1;
+  case a.votes > b.votes:
+    return -1;
+  default:
+    return 0;
+  }
+ }
+```
+
+Sort pokemon by votes
+
+##### Thunk
+
+Using thunks for async actions.

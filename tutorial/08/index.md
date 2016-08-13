@@ -1,6 +1,8 @@
 ## Logger
 The power of middleware with "redux-logger".
 
+Explanation here.
+
 + import `applyMiddleware` in "index.js"
 @test('08/01')
 @action(open('src/index.js'))

@@ -19,7 +19,6 @@ const nextPokemon = state.pokemon.map(p => {
 + Time to make the VOTE_UP action change the state. Return a new list of Pokemon after incrementing "votes" of the pokemon with the matching "id"
 @test('05/01')
 @action(open('src/index.js'))
-@hint('Try this: `case VOTE_UP: const pokemon = state.pokemon.map(p => {`')
 @hint('If the pokemon.id matches the payload.id, increase the votes by one')
 @hint('Don't forget to return the new state')
 @hint('Try returning `return { pokemon };`')

@@ -19,7 +19,7 @@ const store = createStore(reducer, initialState);
 @hint('call store with a simple reducer, `const store = createStore(state => state)`')
 @test('02/03')
 
-+ log your store to the console and have a look.
++ log your `store` to the console and have a look.
 @test('02/04')
 @hint('`console.log(store)`')
 

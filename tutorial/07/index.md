@@ -1,6 +1,8 @@
 ## File Structure
 Refactor your project into different files.
 
+Explanation here
+
 + create a folder in your base directory called "pokemon" and add a file inside called "index.js"
 @test('07/01')
 @hint('create "src/pokemon/index.js"')
@@ -21,4 +23,4 @@ Refactor your project into different files.
 @test('07/05')
 @hint('Try this: `import { default as pokemon, voteUp } from './pokemon';`')
 
-@onPageComplete('')
+@onPageComplete('Page 7 complete...')

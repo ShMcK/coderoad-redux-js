@@ -1,7 +1,7 @@
 {
   "info": {
     "title": "CodeRoad Redux JS Tutorial",
-    "description": "A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux.\n\n<!-- @import('08') -->\n<!-- @import('09') -->\n<!-- @import('10') -->"
+    "description": "A [CodeRoad](https://coderoad.github.io) tutorial for learning Redux."
   },
   "pages": [
     {
@@ -72,7 +72,7 @@
           ]
         },
         {
-          "description": "log your store to the console and have a look.",
+          "description": "log your `store` to the console and have a look.",
           "tests": [
             "02/04"
           ],
@@ -231,7 +231,7 @@
       "description": "Reducers must be pure functions\n\nState is \"read only\".\n\nNotes\n```js\nconst nextPokemon = state.pokemon.map(p => {\n    if (id === p.id) {\n      p.votes += 1;\n    }\n    return p;\n  });\n  return {\n   pokemon: nextPokemon\n };\n ```",
       "tasks": [
         {
-          "description": "Time to make the VOTE_UP action change the state. Return a new list of Pokemon after incrementing \"votes\" of the pokemon with the matching \"id\"\nCreate modular, composable reducers with `combineReducers`.",
+          "description": "Time to make the VOTE_UP action change the state. Return a new list of Pokemon after incrementing \"votes\" of the pokemon with the matching \"id\"",
           "tests": [
             "05/01"
           ],
@@ -239,9 +239,36 @@
             "open('src/index.js')"
           ],
           "hints": [
-            "'Try this: `case VOTE_UP: const pokemon = state.pokemon.map(p => {`')@hint('If the pokemon.id matches the payload.id, increase the votes by one')\n@hint('Don't forget to return the new state')\n@hint('Try returning `return { pokemon };`')\n\n+ Let's make a test to see that we are truly returning a new state. Call `Object.freeze()` on your `initialState`. `freeze` makes an object immutable - meaning the object can not be changed. And yet your reducer should still work, since it returns a new state each call.\n@test('05/02')\n@hint('Try this: `const initialState = Object.freeze({ ... })`')\n\n+ What if we were dealing with multiple keys on the state. We'd have to ensure that our changes return a complete new state each time. Use `Object.assign`\n@test('05/03')\n@hint('return `Object.assign({}, state, { pokemon: nextPokemon });`')\n\n\n## Combine Reducer"
+            "If the pokemon.id matches the payload.id, increase the votes by one",
+            "Don't forget to return the new state",
+            "Try returning `return { pokemon };`"
           ]
         },
+        {
+          "description": "Let's make a test to see that we are truly returning a new state. Call `Object.freeze()` on your `initialState`. `freeze` makes an object immutable - meaning the object can not be changed. And yet your reducer should still work, since it returns a new state each call.",
+          "tests": [
+            "05/02"
+          ],
+          "hints": [
+            "Try this: `const initialState = Object.freeze({ ... })`"
+          ]
+        },
+        {
+          "description": "What if we were dealing with multiple keys on the state. We'd have to ensure that our changes return a complete new state each time. Use `Object.assign`",
+          "tests": [
+            "05/03"
+          ],
+          "hints": [
+            "return `Object.assign({}, state, { pokemon: nextPokemon });`"
+          ]
+        }
+      ],
+      "onPageComplete": "Now that you have an idea of how reducers work. Next we can look at how to create multiple, modular reducers."
+    },
+    {
+      "title": "Combine Reducers",
+      "description": "Create modular, composable reducers with `combineReducers`.\n\nExplanation here.",
+      "tasks": [
         {
           "description": "create a new `const reducers` and set it equal to \"reducer\". Pass \"reducers\" into your store for now, instead of \"reducer\". We'll use combineReducers shortly, but let's not break the app yet.",
           "tests": [
@@ -282,7 +309,7 @@
             "06/04"
           ],
           "hints": [
-            "Try this: ```const reducers = combineReducers({\n  pokemon\n});\n```"
+            "Try this: `const reducers = combineReducers({pokemon});`"
           ]
         },
         {
@@ -297,22 +324,28 @@
             "06/06"
           ],
           "hints": [
-            "Like this:`const defaultPokemon = [{\n  id: 1,\n  name: 'Luvdisc',\n  ...\n`",
+            "Like this: `const defaultPokemon = [{ id: 1, name: 'Luvdisc', ...`",
             "Default params work like this: `fn(param1 = defaultParam, param2)`",
             "Like this: `const pokemon = (state = defaultPokemon, action) => {`"
           ]
         },
         {
-          "description": "We no longer pass the entire \"state\" inside of our reducers, only the slice of our state the reducer needs to know. Rename all references to \"state\" inside of your \"pokemon\" reducer to what it really is now: \"pokemon\".\nRefactor your project into different files.",
+          "description": "We no longer pass the entire \"state\" inside of our reducers, only the slice of our state the reducer needs to know. Rename all references to \"state\" inside of your \"pokemon\" reducer to what it really is now: \"pokemon\".",
           "tests": [
             "06/07"
           ],
           "hints": [
             "Change three references to \"pokemon\" in your pokemon reducer",
-            "First: 'const pokemon = (pokemon = defaultPokemon, action) => {`",
-            "'Second: `const nextPokemon = pokemon.map(p => {`')@hint('Third: `default: return pokemon;`')\n\n\n\n\n## File Structur"
+            "Third: `default: return pokemon;`"
           ]
-        },
+        }
+      ],
+      "onPageComplete": "The state remains the same, but now our reducers are much more modular. In the next step, we will separate our code into it's own file"
+    },
+    {
+      "title": "File Structure",
+      "description": "Refactor your project into different files.\n\nExplanation here",
+      "tasks": [
         {
           "description": "create a folder in your base directory called \"pokemon\" and add a file inside called \"index.js\"",
           "tests": [
@@ -354,6 +387,144 @@
           ],
           "hints": [
             "Try this: `import { default as pokemon, voteUp } from './pokemon';`"
+          ]
+        }
+      ],
+      "onPageComplete": "Page 7 complete..."
+    },
+    {
+      "title": "Logger",
+      "description": "The power of middleware with \"redux-logger\".\n\nExplanation here.",
+      "tasks": [
+        {
+          "description": "import `applyMiddleware` in \"index.js\"",
+          "tests": [
+            "08/01"
+          ],
+          "actions": [
+            "open('src/index.js')"
+          ]
+        },
+        {
+          "description": "set the second param in createStore to `applyMiddleware()`",
+          "tests": [
+            "08/02"
+          ]
+        },
+        {
+          "description": "install \"redux-logger\" using npm",
+          "tests": [
+            "08/03"
+          ]
+        },
+        {
+          "description": "create a \"logger\" as the result of `createLogger()`",
+          "tests": [
+            "08/04"
+          ]
+        },
+        {
+          "description": "pass \"logger\" into `applyMiddleware()`",
+          "tests": [
+            "08/05"
+          ]
+        }
+      ],
+      "onPageComplete": "Look in the console"
+    },
+    {
+      "title": "Second Action",
+      "description": "Creating a \"SORT_BY_POPULARITY\" action.\n\n```js\nfunction sortByVotes(a, b) {\n  switch(true) {\n   case a.votes < b.votes:\n    return 1;\n  case a.votes > b.votes:\n    return -1;\n  default:\n    return 0;\n  }\n }\n```\n\nSort pokemon by votes",
+      "tasks": [
+        {
+          "description": "create an action type for 'SORT_BY_POPULARITY'",
+          "tests": [
+            "09/01"
+          ],
+          "actions": [
+            "open('src/pokemon/index.js')"
+          ]
+        },
+        {
+          "description": "create an action creator called 'sortByPopularity'",
+          "tests": [
+            "09/02"
+          ]
+        },
+        {
+          "description": "dispatch a `sortByPopularity` action after the two voteUp dispatches",
+          "tests": [
+            "09/03"
+          ]
+        },
+        {
+          "description": "add a `SORT_BY_POPULARITY` case that returns `pokemon.sort();`",
+          "tests": [
+            "09/04"
+          ]
+        },
+        {
+          "description": "create a sortByVotes function and pass it into the pokemon.sort function",
+          "tests": [
+            "09/05"
+          ]
+        },
+        {
+          "description": "Make a `sortByKey` function, which is more reusable, by wrapping it in a function that takes a key",
+          "tests": [
+            "09/06"
+          ]
+        },
+        {
+          "description": "You've just created a **thunk** - a function that returns a function. Pass your function into the pokemon.sort() method and give it the key of 'votes'",
+          "tests": [
+            "09/07"
+          ]
+        }
+      ],
+      "onPageComplete": "In the next step, we'll look at using thunks to call async actions"
+    },
+    {
+      "title": "Thunk",
+      "description": "Using thunks for async actions.",
+      "tasks": [
+        {
+          "description": "install \"redux-thunk\" as a dependency",
+          "tests": [
+            "10/01"
+          ],
+          "actions": [
+            "open('src/index.js')"
+          ]
+        },
+        {
+          "description": "import thunk from \"redux-thunk\"",
+          "tests": [
+            "10/02"
+          ]
+        },
+        {
+          "description": "add thunk to applyMiddleware. The logger should always go last",
+          "tests": [
+            "10/03"
+          ]
+        },
+        {
+          "description": "change the voteUp action creator to return a thunk with the param of \"dispatch\"",
+          "tests": [
+            "10/04"
+          ]
+        },
+        {
+          "description": "voteUp should dispatch VOTE_UP",
+          "tests": [
+            "10/05"
+          ]
+        },
+        {
+          "description": "voteUp should dispatch sortByPopularity after each vote",
+          "tests": [
+            "10/06"
           ]
         }
       ],
