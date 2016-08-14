@@ -366,11 +366,11 @@
             "07/01"
           ],
           "hints": [
-            "create \"src/pokemon/index.js\""
+            "create a file in \"src/pokemon/index.js\""
           ]
         },
         {
-          "description": "take your `VOTE_UP` action type from \"index.js\" and put it in \"src/pokemon/index.js\"",
+          "description": "copy the `VOTE_UP` action type from \"index.js\" and put it in \"src/pokemon/index.js\". Keep the original version for now, so our app won't break yet.",
           "tests": [
             "07/02"
           ],
@@ -379,25 +379,41 @@
           ]
         },
         {
-          "description": "take your `voteUp` action creator from \"src/index.js\" and put it in \"src/pokemon/index.js\". Export it as a [\"named\" export](https://developer.mozilla.org/en/docs/web/javascript/reference/statements/export).",
+          "description": "also copy the `voteUp` action creator from \"src/index.js\" and put it in \"src/pokemon/index.js\". Export it as a [\"named\" export](https://developer.mozilla.org/en/docs/web/javascript/reference/statements/export).",
           "tests": [
             "07/03"
           ],
           "hints": [
             "move `voteUp` into \"src/pokemon/index.js\"",
-            "\"src/pokemon/index.js\" should have `const voteUp = id => ({ type: VOTE_UP, payload: { id } });`"
+            "\"src/pokemon/index.js\" should have `const voteUp = id => ({ type: VOTE_UP, payload: { id } });`",
+            "make it a named export: `export const voteUp` = ..."
+          ]
+        },
+        {
+          "description": "import `voteUp` inside of \"src/index.js\". Also delete the unnecessary \"VOTE_UP\" and 'voteUp' in the same file from before.",
+          "tests": [
+            "07/04"
+          ],
+          "hints": [
+            "Try this: `import { voteUp } from './pokemon';`"
+          ]
+        },
+        {
+          "description": "take the `defaultPokemon` from \"src/index.js\" and copy it into \"src/pokemon/index.js\"",
+          "tests": [
+            "07/05"
           ]
         },
         {
           "description": "take your `pokemon` reducer from \"src/index.js\" and put it in \"src/pokemon/index.js\". Export the reducer as a \"default\" export",
           "tests": [
-            "07/04"
+            "07/06"
           ]
         },
         {
-          "description": "in your \"src/index.js\" file, import the action creators and reducer in one line of code.",
+          "description": "in your \"src/index.js\" file, also import your pokemon reducer. This can be on the same line of code. Delete the unnecessary original \"pokemon\" and \"defaultPokemon\" as well.",
           "tests": [
-            "07/05"
+            "07/07"
           ],
           "hints": [
             "Try this: `import { default as pokemon, voteUp } from './pokemon';`"

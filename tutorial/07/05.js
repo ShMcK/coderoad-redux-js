@@ -1,15 +1,9 @@
-describe('05 import', () => {
+describe('05 `defaultPokemon`', () => {
 
-  it('`voteUp` from "./pokemon" in "index.js"', () => {
-    const voteUp = indexJs.__get__('voteUp');
-    expect(voteUp).to.not.be.undefined;
-    expect(typeof voteUp).to.equal('function');
-  });
-
-  it('`default as pokemon` from "./pokemon" in "index.js"', () => {
-    const pokemon = indexJs.__get__('pokemon');
-    expect(pokemon).to.not.be.undefined;
-    expect(typeof pokemon).to.equal('function');
+  it('should be in "src/pokemon/index.js"', () => {
+    const defaultPokemon = pokemonIndexJs.__get__('defaultPokemon');
+    expect(defaultPokemon).to.not.be.undefined;
+    expect(defaultPokemon).to.have.length(3);
   });
 
 });
