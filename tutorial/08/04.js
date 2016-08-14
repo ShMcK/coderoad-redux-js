@@ -1,13 +1,9 @@
-describe('04 logger', () => {
+describe('04 import', () => {
 
-  const logger = indexJs.__get__('logger');
-
-  it('doesn\'t exist', () => {
-    expect(logger).to.not.be.undefined;
-  });
-
-  it('should be set to `createLogger()`', () => {
-
+  it('createLogger', () => {
+    const createLogger = indexJs.__get__('createLogger');
+    expect(createLogger).to.not.be.undefined;
+    expect(typeof createLogger).to.equal('function');
   });
 
 });

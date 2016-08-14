@@ -5,7 +5,7 @@ chai.use(spies);
 
 let spy = chai.spy.on(console, 'log');
 
-const indexJs = require('BASE/index.js');
+const indexJs = require('BASE/src/index.js');
 
 describe('01 applyMiddleware', () => {
 

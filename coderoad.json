@@ -427,7 +427,7 @@
       "description": "The power of middleware with \"redux-logger\".\n\nExplanation here.",
       "tasks": [
         {
-          "description": "import `applyMiddleware` in \"index.js\"",
+          "description": "import `applyMiddleware` in \"index.js\" from the \"redux\" package. It is a named import.",
           "tests": [
             "08/01"
           ],
@@ -439,24 +439,46 @@
           "description": "set the second param in createStore to `applyMiddleware()`",
           "tests": [
             "08/02"
+          ],
+          "hints": [
+            "Try this: `createStore(reducers, applyMiddleware());`"
           ]
         },
         {
           "description": "install \"redux-logger\" using npm",
           "tests": [
             "08/03"
+          ],
+          "hints": [
+            "Try this: `npm install --save-dev redux-logger`"
+          ]
+        },
+        {
+          "description": "import `createLogger` from the \"redux-logger\" package. It is a default import.",
+          "tests": [
+            "08/04"
+          ],
+          "hints": [
+            "Try this: `import createLogger from 'redux-logger';`"
           ]
         },
         {
           "description": "create a \"logger\" as the result of `createLogger()`",
           "tests": [
-            "08/04"
+            "08/05"
+          ],
+          "hints": [
+            "Note that `logger` should be above `store`.",
+            "Try this: `const logger = createLogger()`"
           ]
         },
         {
           "description": "pass \"logger\" into `applyMiddleware()`",
           "tests": [
-            "08/05"
+            "08/06"
+          ],
+          "hints": [
+            "Try this: `applyMiddleware(logger)`"
           ]
         }
       ],
