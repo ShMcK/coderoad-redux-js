@@ -29,6 +29,7 @@ const nextPokemon = state.pokemon.map(p => {
 
 + What if we were dealing with multiple keys on the state. We'd have to ensure that our changes return a complete new state each time. Use `Object.assign`
 @test('05/03')
+@hint('Try this: `case VOTE_UP: const pokemon = state.pokemon.map(...)`')
 @hint('return `Object.assign({}, state, { pokemon: nextPokemon });`')
 
 @onPageComplete('Now that you have an idea of how reducers work. Next we can look at how to create multiple, modular reducers.')

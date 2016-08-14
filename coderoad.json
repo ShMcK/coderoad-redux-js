@@ -259,6 +259,7 @@
             "05/03"
           ],
           "hints": [
+            "Try this: `case VOTE_UP: const pokemon = state.pokemon.map(...)`",
             "return `Object.assign({}, state, { pokemon: nextPokemon });`"
           ]
         }
@@ -270,7 +271,7 @@
       "description": "Create modular, composable reducers with `combineReducers`.\n\nExplanation here.",
       "tasks": [
         {
-          "description": "create a new `const reducers` and set it equal to \"reducer\". Pass \"reducers\" into your store for now, instead of \"reducer\". We'll use combineReducers shortly, but let's not break the app yet.",
+          "description": "create a new `const reducers` and set it equal to \"reducer\". Pass \"reducers\" into your store for now, instead of \"reducer\". If this seems convoluted it is because we're trying not to break the app.",
           "tests": [
             "06/01"
           ],
@@ -283,7 +284,7 @@
           ]
         },
         {
-          "description": "We're going to create more than one reducer. They can't all be called \"reducer\", so rename your original reducer \"pokemon\". Make sure to set reducers equal to the new name as well.",
+          "description": "We're going to create more than one reducer. They can't all be called \"reducer\", so rename your original reducer \"pokemon\". Make sure to set `reducers` equal to the new name as well.",
           "tests": [
             "06/02"
           ],
@@ -295,48 +296,61 @@
           ]
         },
         {
-          "description": "import `combineReducers` from redux",
+          "description": "When we use `combineReducers` we will be able to define the initial state inside of each reducer. To keep things working, we'll have to do this step by step. Copy the \"pokemon\" key from `initialState` and give it its own variable called \"defaultPokemon\". It should be an array with three pokemon.",
           "tests": [
             "06/03"
+          ],
+          "hints": [
+            "Like this: `const defaultPokemon = [{ ... }, { ... }, { ... }]`"
+          ]
+        },
+        {
+          "description": "Set your pokemon reducer first param, state, to equal \"pokemon\", and give it a default value of `defaultPokemon` using ES6 default params.",
+          "tests": [
+            "06/04"
+          ],
+          "hints": [
+            "Default params work like this: `fn(param1 = defaultParam, param2)`",
+            "Like this: `const pokemon = (pokemon = defaultPokemon, action) => {`"
+          ]
+        },
+        {
+          "description": "Fix references to \"state\" inside your reducer to match the passed in value \"pokemon\"",
+          "tests": [
+            "06/05"
+          ],
+          "hints": [
+            "Change three references to \"pokemon\" in your pokemon reducer",
+            "First: 'const pokemon = (pokemon = defaultPokemon, action) => {`",
+            "Second: `const nextPokemon = pokemon.map(...)`",
+            "Third: `default: return pokemon;`"
+          ]
+        },
+        {
+          "description": "Our initial state is now handled by `defaultPokemon`. Set the initial state inside of your `createStore` to simply be an empty object (`{}`).",
+          "tests": [
+            "06/06"
+          ],
+          "hints": [
+            "Try this: `const store = createStore(reducers, {});`"
+          ]
+        },
+        {
+          "description": "import `combineReducers` from redux",
+          "tests": [
+            "06/07"
           ],
           "hints": [
             "Try this: `import { combineReducers } from 'redux';`"
           ]
         },
         {
-          "description": "combineReducers(), and pass in your reducer ({ pokemon })",
+          "description": "`reducers` should now call `combineReducers` instead and call `pokemon`. `combineReducers` takes an object with keys of each reducer.",
           "tests": [
-            "06/04"
+            "06/08"
           ],
           "hints": [
             "Try this: `const reducers = combineReducers({pokemon});`"
-          ]
-        },
-        {
-          "description": "We're going to shake things up now to make our reducers more composable. Set the initial state inside of your `createStore` to simply be an empty object (`{}`)",
-          "tests": [
-            "06/05"
-          ]
-        },
-        {
-          "description": "Thanks to `combineReducers` we can now define the initial state inside of each reducer. Get rid of \"initialState\", but keep the \"pokemon\" key and call it \"defaultPokemon\". It should be an array with three pokemon. Finally, pass the `defaultPokemon` as the default state in the pokemon reducer. You can use ES6 default params.",
-          "tests": [
-            "06/06"
-          ],
-          "hints": [
-            "Like this: `const defaultPokemon = [{ id: 1, name: 'Luvdisc', ...`",
-            "Default params work like this: `fn(param1 = defaultParam, param2)`",
-            "Like this: `const pokemon = (state = defaultPokemon, action) => {`"
-          ]
-        },
-        {
-          "description": "We no longer pass the entire \"state\" inside of our reducers, only the slice of our state the reducer needs to know. Rename all references to \"state\" inside of your \"pokemon\" reducer to what it really is now: \"pokemon\".",
-          "tests": [
-            "06/07"
-          ],
-          "hints": [
-            "Change three references to \"pokemon\" in your pokemon reducer",
-            "Third: `default: return pokemon;`"
           ]
         }
       ],

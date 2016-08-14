@@ -1,19 +1,11 @@
-describe('06 defaultPokemon', () => {
+describe('06 stores initial state', () => {
 
-  it('doesn\'t exist', () => {
-    expect(defaultPokemon).to.not.be.undefined;
-  });
-
-  it('should be a list of three pokemon', () => {
-    expect(defaultPokemon).to.have.length(3);
-  });
-
-  it('should have the full pokemon data from before', () => {
-    expect(defaultPokemon[0].name).to.equal('Luvdisc');
-  });
-
-  it('should be the default param for state in the pokemon reducer', () => {
-    expect(pokemon(undefined, { type: 'ANY' })).to.deep.equal(defaultPokemon);
+  it('should be declared', () => {
+    // the state will become greater after we declare our pokemon,
+    // but for now let's make sure the state is just an empty object
+    if (process.env.TASK_POSITION === '4') {
+      expect(store.getState()).to.deep.equal({});
+    }
   });
 
 });
