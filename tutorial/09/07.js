@@ -14,11 +14,6 @@ describe('07 sortByKey function', () => {
     expect(sortByKey).to.have.length(1);
   });
 
-  it('should sort a list of objects by a key', () => {
-    const list = [{a: 3}, {a: 1}, {a: 2}];
-    expect(list.sort(sortByKey('a'))).to.not.deep.equal(list);
-  });
-
   it('should sort a list in descending order', () => {
     const list = [{a: 3}, {a: 1}, {a: 2}];
     const expected = [{a: 3}, {a: 2}, {a: 1}];

@@ -33,7 +33,7 @@ Sort pokemon by votes
 @hint('use `store.dispatch(actionCreator)`')
 @hint('Try this: `store.dispatch(sortByPopularity())`')
 
-+ add a `SORT_BY_POPULARITY` case that returns `pokemon.sort();`
++ back in "src/pokemon/index.js", add a `SORT_BY_POPULARITY` case that returns `pokemon.sort();`
 @test('09/05')
 @hint('Try this: `case SORT_BY_POPULARITY: return pokemon.sort()`')
 
@@ -45,9 +45,9 @@ Sort pokemon by votes
 
 function sortByVotes(a, b) {
   switch(true) {
-    case a.votes > b.votes:
-      return 1;
     case a.votes < b.votes:
+      return 1;
+    case a.votes > b.votes:
       return -1;
     default: return 0;
   }

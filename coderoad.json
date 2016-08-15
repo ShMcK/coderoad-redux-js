@@ -531,7 +531,7 @@
           ]
         },
         {
-          "description": "add a `SORT_BY_POPULARITY` case that returns `pokemon.sort();`",
+          "description": "back in \"src/pokemon/index.js\", add a `SORT_BY_POPULARITY` case that returns `pokemon.sort();`",
           "tests": [
             "09/05"
           ],
@@ -548,7 +548,7 @@
             "Try this: `case SORT_BY_POPULARITY: return pokemon.sort(sortByVotes)`"
           ],
           "actions": [
-            "insert('\nfunction sortByVotes(a, b) {\n  switch(true) {\n    case a.votes > b.votes:\n      return 1;\n    case a.votes < b.votes:\n      return -1;\n    default: return 0;\n  }\n}\n\n')"
+            "insert('\nfunction sortByVotes(a, b) {\n  switch(true) {\n    case a.votes < b.votes:\n      return 1;\n    case a.votes > b.votes:\n      return -1;\n    default: return 0;\n  }\n}\n\n')"
           ]
         },
         {
