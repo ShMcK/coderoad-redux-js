@@ -7,7 +7,8 @@ describe('05 logger', () => {
   });
 
   it('should be set to `createLogger()`', () => {
-
+    expect(typeof logger).to.equal('function');
+    expect(logger.toString()).to.match(/logEntry/);
   });
 
 });

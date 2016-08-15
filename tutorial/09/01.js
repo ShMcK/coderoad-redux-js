@@ -1,11 +1,7 @@
-const chai = require('chai');
-const spies = require('chai-spies');
-const expect = chai.expect;
-chai.use(spies);
+const { expect } = require('chai');
 
-let spy = chai.spy.on(console, 'log');
-
-const pokemonIndexJs = require('BASE/pokemon/index.js');
+const indexJs = require('BASE/src/index.js');
+const pokemonIndexJs = require('BASE/src/pokemon/index.js');
 
 describe('01 SORT_BY_POPULARITY action type', () => {
 

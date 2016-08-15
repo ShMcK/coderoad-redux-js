@@ -123,12 +123,9 @@ Creating a "SORT_BY_POPULARITY" action.
 ```js
 function sortByVotes(a, b) {
   switch(true) {
-   case a.votes < b.votes:
-    return 1;
-  case a.votes > b.votes:
-    return -1;
-  default:
-    return 0;
+   case a.votes < b.votes: return 1;
+   case a.votes > b.votes: return -1;
+   default: return 0;
   }
  }
 ```

@@ -486,51 +486,88 @@
     },
     {
       "title": "Second Action",
-      "description": "Creating a \"SORT_BY_POPULARITY\" action.\n\n```js\nfunction sortByVotes(a, b) {\n  switch(true) {\n   case a.votes < b.votes:\n    return 1;\n  case a.votes > b.votes:\n    return -1;\n  default:\n    return 0;\n  }\n }\n```\n\nSort pokemon by votes",
+      "description": "Creating a \"SORT_BY_POPULARITY\" action.\n\n```js\nfunction sortByVotes(a, b) {\n  switch(true) {\n   case a.votes < b.votes: return 1;\n   case a.votes > b.votes: return -1;\n   default: return 0;\n  }\n }\n```\n\nSort pokemon by votes",
       "tasks": [
         {
-          "description": "create an action type for 'SORT_BY_POPULARITY'",
+          "description": "in \"src/pokemon/index.js\", create an action type for 'SORT_BY_POPULARITY'",
           "tests": [
             "09/01"
           ],
           "actions": [
             "open('src/pokemon/index.js')"
+          ],
+          "hints": [
+            "Try this: `const SORT_BY_POPULARITY = 'SORT_BY_POPULARITY';`"
           ]
         },
         {
-          "description": "create an action creator called 'sortByPopularity'",
+          "description": "create the action creator called 'sortByPopularity' and export it",
           "tests": [
             "09/02"
+          ],
+          "hints": [
+            "It should be a function that returns `{ type: SORT_BY_POPULARITY }`",
+            "Try this: `const sortByPopularity = () => ({ ... })`",
+            "It should be exported using `export`"
           ]
         },
         {
-          "description": "dispatch a `sortByPopularity` action after the two voteUp dispatches",
+          "description": "import `sortByPopularity` in \"src/index.js\".",
           "tests": [
             "09/03"
+          ],
+          "hints": [
+            "Try this: `import { sortByPopularity } from './pokemon';`"
+          ]
+        },
+        {
+          "description": "in \"src/index.js\", dispatch a `sortByPopularity` action at the bottom of the page",
+          "tests": [
+            "09/04"
+          ],
+          "hints": [
+            "use `store.dispatch(actionCreator)`",
+            "Try this: `store.dispatch(sortByPopularity())`"
           ]
         },
         {
           "description": "add a `SORT_BY_POPULARITY` case that returns `pokemon.sort();`",
           "tests": [
-            "09/04"
-          ]
-        },
-        {
-          "description": "create a sortByVotes function and pass it into the pokemon.sort function",
-          "tests": [
             "09/05"
+          ],
+          "hints": [
+            "Try this: `case SORT_BY_POPULARITY: return pokemon.sort()`"
           ]
         },
         {
-          "description": "Make a `sortByKey` function, which is more reusable, by wrapping it in a function that takes a key",
+          "description": "use the `sortByVotes` function and pass it into the `pokemon.sort` function. Sorting function return 1, -1, or 0 depending on where the index of b should be arranged around a.",
           "tests": [
             "09/06"
+          ],
+          "hints": [
+            "Try this: `case SORT_BY_POPULARITY: return pokemon.sort(sortByVotes)`"
+          ],
+          "actions": [
+            "insert('\nfunction sortByVotes(a, b) {\n  switch(true) {\n    case a.votes > b.votes:\n      return 1;\n    case a.votes < b.votes:\n      return -1;\n    default: return 0;\n  }\n}\n\n')"
           ]
         },
         {
-          "description": "You've just created a **thunk** - a function that returns a function. Pass your function into the pokemon.sort() method and give it the key of 'votes'",
+          "description": "Use the `sortByKey` function, which is more reusable. It should take a param of \"key\" and return a function similar to `sortByVotes`, but sorting on the \"key\" param.",
           "tests": [
             "09/07"
+          ],
+          "actions": [
+            "insert('\nfunction sortByKey(key) {\n  return function(a, b) {\n\n    // sorting cases here\n\n  }\n}\n')"
+          ]
+        },
+        {
+          "description": "You've just created a **thunk** - a function that returns a function. Pass your function into the `pokemon.sort()` method and give it the key of 'votes'",
+          "tests": [
+            "09/08"
+          ],
+          "hints": [
+            "Try this: `sortByKey('votes')`",
+            "Try this: pokemon.sort(sortByKey('votes'))"
           ]
         }
       ],

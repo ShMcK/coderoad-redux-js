@@ -12,8 +12,4 @@ describe('03 defaultPokemon', () => {
     expect(defaultPokemon[0].name).to.equal('Luvdisc');
   });
 
-  // it('should be the default param for state in the pokemon reducer', () => {
-  //   expect(pokemon(undefined, { type: 'ANY' })).to.deep.equal(defaultPokemon);
-  // });
-
 });
