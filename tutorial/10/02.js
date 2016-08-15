@@ -1,11 +1,11 @@
-describe('02 thunk', () => {
+describe('02 reduxThunk', () => {
 
-  const thunk = indexJs.__get__('thunk');
+  const reduxThunk = indexJs.__get__('reduxThunk');
 
   it('should be imported', () => {
-    expect(thunk).to.not.be.undefined;
+    expect(reduxThunk).to.not.be.undefined;
+    const regex = /f/;
+    expect(reduxThunk.toString()).to.match(regex);
   });
-
-  // more specific check
 
 });

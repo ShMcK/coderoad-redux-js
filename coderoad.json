@@ -584,36 +584,56 @@
           ],
           "actions": [
             "open('src/index.js')"
+          ],
+          "hints": [
+            "Try this: `npm install --save redux-thunk`"
           ]
         },
         {
-          "description": "import thunk from \"redux-thunk\"",
+          "description": "import `reduxThunk` from \"redux-thunk\"",
           "tests": [
             "10/02"
+          ],
+          "hints": [
+            "Try this: `import reduxThunk from 'redux-thunk';`"
           ]
         },
         {
-          "description": "add thunk to applyMiddleware. The logger should always go last",
+          "description": "add `reduxThunk` to applyMiddleware. The logger should always go last",
           "tests": [
             "10/03"
+          ],
+          "hints": [
+            "Try this: `applyMiddleware(reduxThunk, logger)`"
           ]
         },
         {
-          "description": "change the voteUp action creator to return a thunk with the param of \"dispatch\"",
+          "description": "change the `voteUp` action creator in \"src/pokemon/index.js\" to return a thunk with the param of \"dispatch\"",
           "tests": [
             "10/04"
+          ],
+          "hints": [
+            "`Try this: `const voteUp => (id) => (dispatch) => {}`'"
           ]
         },
         {
-          "description": "voteUp should dispatch VOTE_UP",
+          "description": "voteUp` should dispatch `VOTE_UP",
           "tests": [
             "10/05"
+          ],
+          "hints": [
+            "Try this: `const voteUp => (id) => (dispatch) => dispatch(voteUp(id))`"
           ]
         },
         {
-          "description": "voteUp should dispatch sortByPopularity after each vote",
+          "description": "`voteUp` should also dispatch `sortByPopularity after each vote",
           "tests": [
             "10/06"
+          ],
+          "hints": [
+            "Try this: `const voteUp => (id) => (dispatch) => { ... dispatches ... }`",
+            "Add: `dispatch(sortByPopularity());`",
+            "Try this: `const voteUp => (id) => (dispatch) => { dispatch(voteUp(id); dispatch(sortByPopularity()))}`"
           ]
         }
       ],
