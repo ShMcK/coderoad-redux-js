@@ -1,5 +1,22 @@
 ## Thunk
-Using thunks for async actions.
+As we've seen in the previous steps, thunks sound more complicated than they really are. A thunk is just a function that returns a function.
+
+Inside of middleware, we can determine if an action is returning a function.
+
+```js
+const store => next => action => {
+  if (typeof action === 'function') {
+    // it's a thunk!
+  }
+  return next(action);
+}
+```
+
+If it is a thunk, we can pass in two helpful params:
+  - `store.dispatch`
+  - `store.getState`
+
+As we'll see, `dispatch` alone can allow us to create async or multiple actions.
 
 + install "redux-thunk" as a dependency
 @test('10/01')
@@ -28,4 +45,4 @@ Using thunks for async actions.
 @hint('Add: `dispatch(sortByPopularity());`')
 @hint('Try this: `const voteUp => (id) => (dispatch) => { dispatch(voteUp(id); dispatch(sortByPopularity()))}`')
 
-@onPageComplete('')
+@onPageComplete('Excellent! You've completed this tutorial! Look forward to more soon!')

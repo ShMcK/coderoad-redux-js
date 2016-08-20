@@ -1,7 +1,34 @@
 ## File Structure
-Refactor your project into different files.
+Our "index.js" file is getting a little long. Of course, our app will be more maintainable if we can divide it across different, well structured files.
 
-Explanation here
+There are different ways of structuring your app:
+
+##### 1. Files By Type
+
+- store.js
+- action-types.js
+- action-creators.js
+- reducers.js
+
+##### 2. Files By Function
+
+- store.js
+- reducers.js
+- modules
+  - pokemon
+    - index.js
+
+##### 3. Files by Function & Type
+
+- store
+- reducers.js
+- modules
+  - pokemon
+    - actions.js
+    - reducer.js
+    - action-types.js
+
+For simplicity in this example, we'll try putting our files together by function.
 
 + create a folder in your base directory called "pokemon" and add a file inside called "index.js"
 @test('07/01')

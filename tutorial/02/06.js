@@ -1,14 +1,10 @@
+const initialState = indexJs.__get__('initialState');
+
 describe('06 initialState', () => {
 
-  const initialState = indexJs.__get__('initialState');
-
-  it('should be above the store', () => {
+  it('should be imported from "./src/data.js"', () => {
     expect(initialState).to.not.be.undefined;
-    expect(store.getState()).to.deep.equal(initialState);
-  });
-
-  it('isn\'t logged to the console.', () => {
-    expect(spy).to.have.been.called.with(initialState);
+    expect(typeof initialState).to.equal('object');
   });
 
 });

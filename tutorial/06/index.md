@@ -1,7 +1,29 @@
 ## Combine Reducers
-Create modular, composable reducers with `combineReducers`.
+In Redux, we are not limited to writing a long, single reducer. Using `combineReducers` allows us to create modular, composable reducers.
 
-Explanation here.
+As our state is an object, for example:
+
+```js
+{
+  pokemon: [ ... ],
+  users: [ ... ]
+}
+```
+
+We can create a reducer to handle data transformations for each key in our state.
+
+```js
+{
+  pokemon: pokemonReducer,
+  users: usersReducer
+}
+```
+
+As our app grows, we can now think of the data in smaller chunks.
+
+> [Learn more](http://redux.js.org/docs/api/combineReducers.html).
+
+Let's try refactoring our app to use `combineReducers`.
 
 + create a new `const reducers` and set it equal to "reducer". Pass "reducers" into your store for now, instead of "reducer". If this seems convoluted it is because we're trying not to break the app.
 @test('06/01')

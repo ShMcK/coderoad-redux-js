@@ -1,22 +1,52 @@
 ## Actions
-Events that change the data.
+An **action** is a named event that can trigger a change in your application data.
+
+Actions are often broken into three parts to make your code more readable.
 
 ##### 1. Actions
+
+An **action** includes a named "type".
 ```js
 const action = { type: 'ACTION_NAME' };
 ```
 
+Actions may also include other possible params needed to transform that data.
+
+```js
+const getItem = { type: 'GET_ITEM', clientId: 42, payload: { id: 12 } };
+```
+
+Normal params passed in are often put inside of a `payload` object. This is part of a standard called [Flux Standard Action](https://github.com/acdlite/flux-standard-action). Other common fields include `error` & `meta`.
+
 ##### 2. Action Creators
+
+An **action creator** is a functions that creates an action.
 
 ```js
 const actionName = () => ({ type: 'ACTION_NAME' });
 ```
 
-##### 3. Action Types
+Action creators make it easy to pass params into an action.
 
 ```js
-const ACTION_NAME = 'ACTION_NAME'
+const getItem = (clientId, id) => ({ type: 'GET_ITEM', clientId: 42, payload: { id: 12 } });
 ```
+
+##### 3. Action Types
+
+Often, the action name is also extracted as an **action type**. This is helpful for readability and to catch action name typos. Additionally, most editors will auto-complete your action types from the variable name.
+
+```js
+const ACTION_NAME = 'ACTION_NAME';
+const GET_ITEM = 'GET_ITEM';
+
+const action = () => ({ type: ACTION_NAME });
+const getItem = (id) => ({ type: GET_ITEM, payload: { id }});
+```
+
+> [Learn more](http://redux.js.org/docs/basics/Actions.html).
+
+Let's write an action for voting up your choice of worst pokemon.
 
 + create an action called `voteUp` and a type of 'VOTE_UP'
 @test('03/01')

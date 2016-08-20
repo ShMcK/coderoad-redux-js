@@ -1,5 +1,13 @@
 ## Second Action
-Creating a "SORT_BY_POPULARITY" action.
+Notice how the votes remain out of order. Let's create a sorting action for putting the highest votes at the top.
+
+For this, we'll use a sorting function. A sorting function takes two values, and returns either:
+
+- `1`:  move ahead
+- `-1`: move behind
+- `0`:  no change
+
+See an example for sorting votes below:
 
 ```js
 function sortByVotes(a, b) {
@@ -11,7 +19,7 @@ function sortByVotes(a, b) {
  }
 ```
 
-Sort pokemon by votes
+Let's setup a `SORT_BY_POPULARITY` action to be called after each vote.
 
 + in "src/pokemon/index.js", create an action type for 'SORT_BY_POPULARITY'
 @test('09/01')
@@ -76,4 +84,4 @@ function sortByKey(key) {
 @hint('Try this: `sortByKey('votes')`')
 @hint('Try this: pokemon.sort(sortByKey('votes'))')
 
-@onPageComplete('In the next step, we'll look at using thunks to call async actions')
+@onPageComplete('In the next step, we'll look at using **thunks** to call helpful async actions from within middleware')

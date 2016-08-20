@@ -1,12 +1,36 @@
 ## Reducer
-The data transformation
+A **reducer** is what handles the actual data transformation triggered by an action.
+
+In it's simplest form, a **reducer** is just a function with the current **state** and current **action** passed in.
 
 ```js
-const reducer = (state) => {
+const reducer = (state, action) => {
   console.log(state);
   return state;
 };
 ```
+
+We can handle different actions by matching on the action type. If no matches are found, we just return the original state.
+
+```js
+const ACTION_NAME = 'ACTION_NAME';
+
+const reducer = (state, action) => {
+  switch(action.type) {
+    // match on action.type === ACTION_NAME
+    case ACTION_NAME:
+      state = 42;
+      // return new state after transformation
+      return state;
+    default:
+      return state;
+  }
+};
+```
+
+Our reducer is passed in as the first param when we create our **store**.
+
+> [Learn more](http://redux.js.org/docs/basics/Reducers.html).
 
 + Extract the `state => state` function called by `createStore`, and declare it with a variable called "reducer".
 @test('04/01')

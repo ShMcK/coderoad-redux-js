@@ -1,7 +1,26 @@
 ## Logger
-The power of middleware with "redux-logger".
+We still haven't touched on one of the most powerful features of Redux: **middleware**.
 
-Explanation here.
+Middleware is triggered on each action.
+
+```
+1. Dispatch(action)
+  -> 2. Middleware(state, action)
+    -> 3. Reducer(state, action)
+      -> 4. state
+```
+
+Middleware is created with the `store`. In it's most basic form, middleware can look like the function below:
+
+```js
+const store => next => action => {
+  // do something magical here
+  return next(action);
+  // returns result of reducer called with action
+}
+```
+
+Let's try out the power of middleware with "redux-logger".
 
 + import `applyMiddleware` in "index.js" from the "redux" package. It is a named import.
 @test('08/01')

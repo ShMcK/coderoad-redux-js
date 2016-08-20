@@ -1,20 +1,32 @@
 ## Pure Functions
-Reducers must be pure functions
+Redux totes itself as a "predictable" state container. This predictability is the product of some helpful restrictions that force us to write better code.
 
-State is "read only".
+One such guideline: reducers must be pure functions.
 
-Notes
+##### Mutation
+
+When an action passes through a reducer, it should not "mutate" the data, but rather return a new state altogether.
+
 ```js
-const nextPokemon = state.pokemon.map(p => {
-    if (id === p.id) {
-      p.votes += 1;
-    }
-    return p;
-  });
-  return {
-   pokemon: nextPokemon
- };
- ```
+case ADD_TO_ARRAY:
+  /* bad */
+  state.push(42); // push mutates the state
+  return state;
+```
+
+If multiple actions were pushing into the state, the functions are no longer **pure** and thus no longer fully predictable.
+
+##### Pure
+
+By returning an entirely new array, we can be sure that our state will be **pure** and thus predictable.
+
+```js
+case ADD_TO_ARRAY:
+  /* good */
+  return state.concat(42); // returns a new array, with 42 on the end
+```
+
+Let's give writing pure reducers a try as we implement our `VOTE_UP` action.
 
 + Time to make the VOTE_UP action change the state. Return a new list of Pokemon after incrementing "votes" of the pokemon with the matching "id"
 @test('05/01')

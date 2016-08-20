@@ -1,9 +1,15 @@
 ## The Store
-The "single source of truth".
+In Redux, the **store** is the boss. Think of the **store** as holding the "single source of truth" of your application data.
 
-```js
-const store = createStore(reducer, initialState);
-```
+Once created, the **store** has several helpful methods:
+  - `getState` to read the current data of your app.
+  - `dispatch` to trigger actions. We'll look at actions more later.
+  - `subscribe` to listen for state changes
+
+> [Learn more](http://redux.js.org/docs/basics/Store.html).
+
+Let's get started by settings up the **store** for your Redux app.
+
 
 + install Redux as a dependency.
 @hint('Run `npm install --save redux`.')
@@ -27,31 +33,13 @@ const store = createStore(reducer, initialState);
 @test('02/05')
 @hint('`console.log(store.getState())`')
 
-+ move the initial state to the top of the file, and pass it in as a second param your `createStore`
++ import the newly written data in 'data.js'. Set it to a variable called "initialState".
 @test('02/06')
-@hint('Move `initialState` above your `store`')
+@action(writeFromFile('src/data.js', '02/data.js'))
+@hint('Try this: `const initialState = require('./data.js').default;`')
+
++ pass in `initialState` as a second param your `createStore`
+@test('02/06')
 @hint('Pass in `initialState` as a second param to `createStore`')
-@action(insert(
-```
-const initialState = {
-  pokemon: [{
-    id: 1,
-    name: 'Luvdisc',
-    description: 'This heart-shaped POKéMON earned its name by swimming after loving couples it spotted in the ocean’s waves.',
-    votes: 3
-  }, {
-    id: 2,
-    name: 'Trubbish',
-    description: 'Wanting more garbage, they follow people who litter. They always belch poison gas.',
-    votes: 2
-  }, {
-    id: 3,
-    name: 'Stunfisk',
-    description: 'Its skin is very hard, so it is unhurt even if stepped on by sumo wrestlers. It smiles when transmitting electricity.',
-    votes: 0
-  }]
- };
-```
-))
 
 @onPageComplete('As you can see, the store is just an object with various methods like "dispatch" and "getState". Let's see what these methods do in the next step.')

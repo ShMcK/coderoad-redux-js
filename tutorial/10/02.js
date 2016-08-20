@@ -4,8 +4,8 @@ describe('02 reduxThunk', () => {
 
   it('should be imported', () => {
     expect(reduxThunk).to.not.be.undefined;
-    const regex = /f/;
-    expect(reduxThunk.toString()).to.match(regex);
+    // const regex = /function (_ref) {/;
+    // expect(reduxThunk.toString()).to.match(regex);
   });
 
 });

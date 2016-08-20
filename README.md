@@ -21,9 +21,9 @@ CodeRoad is an open-sourced interactive tutorial platform for the Atom Editor. L
 
 ##### Project Setup
 
-Getting a project setup is rarely easy. Luckily, we have a quick script that can do the work for us.
+Welcome! In this tutorial series we'll be exploring Redux, a tool for predictably managing state in your app.
 
----
+We will be making a "Worst Pokemon" voting app. For the app, we'll need to setup some build tools.
 
 Running `> npm run setup` will do the following:
 
@@ -34,91 +34,235 @@ Running `> npm run setup` will do the following:
 
 You'll find this "setup" script located in your *package.json*.
 
-
----
-
-We'll be installing a lot of scripts from terminal. You may also want to consider installing the atom package ["platformio-ide-terminal"](https://github.com/platformio/platformio-atom-ide-terminal), which provides a terminal inside your editor.
+> We'll be installing several NPM packages from terminal. You may consider installing a plugin for adding a terminal inside your editor, such as ["platformio-ide-terminal"](https://github.com/platformio/platformio-atom-ide-terminal).
 
 ##### The Store
 
-The "single source of truth".
+In Redux, the **store** is the boss. Think of the **store** as holding the "single source of truth" of your application data.
 
-```js
-const store = createStore(reducer, initialState);
-```
+Once created, the **store** has several helpful methods:
+  - `getState` to read the current data of your app.
+  - `dispatch` to trigger actions. We'll look at actions more later.
+  - `subscribe` to listen for state changes
+
+> [Learn more](http://redux.js.org/docs/basics/Store.html).
+
+Let's get started by settings up the **store** for your Redux app.
 
 ##### Actions
 
-Events that change the data.
+An **action** is a named event that can trigger a change in your application data.
+
+Actions are often broken into three parts to make your code more readable.
 
 ##### 1. Actions
+
+An **action** includes a named "type".
 ```js
 const action = { type: 'ACTION_NAME' };
 ```
 
+Actions may also include other possible params needed to transform that data.
+
+```js
+const getItem = { type: 'GET_ITEM', clientId: 42, payload: { id: 12 } };
+```
+
+Normal params passed in are often put inside of a `payload` object. This is part of a standard called [Flux Standard Action](https://github.com/acdlite/flux-standard-action). Other common fields include `error` & `meta`.
+
 ##### 2. Action Creators
+
+An **action creator** is a functions that creates an action.
 
 ```js
 const actionName = () => ({ type: 'ACTION_NAME' });
 ```
 
-##### 3. Action Types
+Action creators make it easy to pass params into an action.
 
 ```js
-const ACTION_NAME = 'ACTION_NAME'
+const getItem = (clientId, id) => ({ type: 'GET_ITEM', clientId: 42, payload: { id: 12 } });
 ```
+
+##### 3. Action Types
+
+Often, the action name is also extracted as an **action type**. This is helpful for readability and to catch action name typos. Additionally, most editors will auto-complete your action types from the variable name.
+
+```js
+const ACTION_NAME = 'ACTION_NAME';
+const GET_ITEM = 'GET_ITEM';
+
+const action = () => ({ type: ACTION_NAME });
+const getItem = (id) => ({ type: GET_ITEM, payload: { id }});
+```
+
+> [Learn more](http://redux.js.org/docs/basics/Actions.html).
+
+Let's write an action for voting up your choice of worst pokemon.
 
 ##### Reducer
 
-The data transformation
+A **reducer** is what handles the actual data transformation triggered by an action.
+
+In it's simplest form, a **reducer** is just a function with the current **state** and current **action** passed in.
 
 ```js
-const reducer = (state) => {
+const reducer = (state, action) => {
   console.log(state);
   return state;
 };
 ```
 
+We can handle different actions by matching on the action type. If no matches are found, we just return the original state.
+
+```js
+const ACTION_NAME = 'ACTION_NAME';
+
+const reducer = (state, action) => {
+  switch(action.type) {
+    // match on action.type === ACTION_NAME
+    case ACTION_NAME:
+      state = 42;
+      // return new state after transformation
+      return state;
+    default:
+      return state;
+  }
+};
+```
+
+Our reducer is passed in as the first param when we create our **store**.
+
+> [Learn more](http://redux.js.org/docs/basics/Reducers.html).
+
 ##### Pure Functions
 
-Reducers must be pure functions
+Redux totes itself as a "predictable" state container. This predictability is the product of some helpful restrictions that force us to write better code.
 
-State is "read only".
+One such guideline: reducers must be pure functions.
 
-Notes
+##### Mutation
+
+When an action passes through a reducer, it should not "mutate" the data, but rather return a new state altogether.
+
 ```js
-const nextPokemon = state.pokemon.map(p => {
-    if (id === p.id) {
-      p.votes += 1;
-    }
-    return p;
-  });
-  return {
-   pokemon: nextPokemon
- };
- ```
+case ADD_TO_ARRAY:
+  /* bad */
+  state.push(42); // push mutates the state
+  return state;
+```
+
+If multiple actions were pushing into the state, the functions are no longer **pure** and thus no longer fully predictable.
+
+##### Pure
+
+By returning an entirely new array, we can be sure that our state will be **pure** and thus predictable.
+
+```js
+case ADD_TO_ARRAY:
+  /* good */
+  return state.concat(42); // returns a new array, with 42 on the end
+```
+
+Let's give writing pure reducers a try as we implement our `VOTE_UP` action.
 
 ##### Combine Reducers
 
-Create modular, composable reducers with `combineReducers`.
+In Redux, we are not limited to writing a long, single reducer. Using `combineReducers` allows us to create modular, composable reducers.
 
-Explanation here.
+As our state is an object, for example:
+
+```js
+{
+  pokemon: [ ... ],
+  users: [ ... ]
+}
+```
+
+We can create a reducer to handle data transformations for each key in our state.
+
+```js
+{
+  pokemon: pokemonReducer,
+  users: usersReducer
+}
+```
+
+As our app grows, we can now think of the data in smaller chunks.
+
+> [Learn more](http://redux.js.org/docs/api/combineReducers.html).
+
+Let's try refactoring our app to use `combineReducers`.
 
 ##### File Structure
 
-Refactor your project into different files.
+Our "index.js" file is getting a little long. Of course, our app will be more maintainable if we can divide it across different, well structured files.
 
-Explanation here
+There are different ways of structuring your app:
+
+##### 1. Files By Type
+
+- store.js
+- action-types.js
+- action-creators.js
+- reducers.js
+
+##### 2. Files By Function
+
+- store.js
+- reducers.js
+- modules
+  - pokemon
+    - index.js
+
+##### 3. Files by Function & Type
+
+- store
+- reducers.js
+- modules
+  - pokemon
+    - actions.js
+    - reducer.js
+    - action-types.js
+
+For simplicity in this example, we'll try putting our files together by function.
 
 ##### Logger
 
-The power of middleware with "redux-logger".
+We still haven't touched on one of the most powerful features of Redux: **middleware**.
 
-Explanation here.
+Middleware is triggered on each action.
+
+```
+1. Dispatch(action)
+  -> 2. Middleware(state, action)
+    -> 3. Reducer(state, action)
+      -> 4. state
+```
+
+Middleware is created with the `store`. In it's most basic form, middleware can look like the function below:
+
+```js
+const store => next => action => {
+  // do something magical here
+  return next(action);
+  // returns result of reducer called with action
+}
+```
+
+Let's try out the power of middleware with "redux-logger".
 
 ##### Second Action
 
-Creating a "SORT_BY_POPULARITY" action.
+Notice how the votes remain out of order. Let's create a sorting action for putting the highest votes at the top.
+
+For this, we'll use a sorting function. A sorting function takes two values, and returns either:
+
+- `1`:  move ahead
+- `-1`: move behind
+- `0`:  no change
+
+See an example for sorting votes below:
 
 ```js
 function sortByVotes(a, b) {
@@ -130,8 +274,25 @@ function sortByVotes(a, b) {
  }
 ```
 
-Sort pokemon by votes
+Let's setup a `SORT_BY_POPULARITY` action to be called after each vote.
 
 ##### Thunk
 
-Using thunks for async actions.
+As we've seen in the previous steps, thunks sound more complicated than they really are. A thunk is just a function that returns a function.
+
+Inside of middleware, we can determine if an action is returning a function.
+
+```js
+const store => next => action => {
+  if (typeof action === 'function') {
+    // it's a thunk!
+  }
+  return next(action);
+}
+```
+
+If it is a thunk, we can pass in two helpful params:
+  - `store.dispatch`
+  - `store.getState`
+
+As we'll see, `dispatch` alone can allow us to create async or multiple actions.
