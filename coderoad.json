@@ -6,7 +6,7 @@
   "pages": [
     {
       "title": "Project Setup",
-      "description": "Welcome! In this tutorial series we'll be exploring Redux, a tool for predictably managing state in your app.\n\nWe will be making a \"Worst Pokemon\" voting app. For the app, we'll need to setup some build tools.\n\nRunning `> npm run setup` will do the following:\n\n1. Install package dev dependencies\n2. Create an output directory called \"dist\"\n3. Install \"concurrently\" & \"browser-sync\" globally\n4. Run our app in the browser\n\nYou'll find this \"setup\" script located in your *package.json*.\n\n> We'll be installing several NPM packages from terminal. You may consider installing a plugin for adding a terminal inside your editor, such as [\"platformio-ide-terminal\"](https://github.com/platformio/platformio-atom-ide-terminal).",
+      "description": "Welcome! In this tutorial series we'll be exploring Redux, a tool for predictably managing state in your app.\n\nWe will be making a \"Worst Pokemon\" voting app. For the app, we'll need to setup some build tools.\n\nRunning `> npm run setup` will do the following:\n\n1. Install package dev dependencies\n2. Create an output directory called \"dist\"\n3. Install \"concurrently\" & \"browser-sync\" globally\n4. Run our app in the browser\n\nYou'll find this \"setup\" script located in your *package.json*.\n\nWe'll be installing several NPM packages from terminal. You may consider installing a plugin for adding a terminal inside your editor, such as [\"platformio-ide-terminal\"](https://github.com/platformio/platformio-atom-ide-terminal).",
       "tasks": [
         {
           "description": "Open a terminal in this project directory and run `npm run setup`. Save to continue.",
@@ -36,7 +36,7 @@
     },
     {
       "title": "The Store",
-      "description": "In Redux, the **store** is the boss. Think of the **store** as holding the \"single source of truth\" of your application data.\n\nOnce created, the **store** has several helpful methods:\n  - `getState` to read the current data of your app.\n  - `dispatch` to trigger actions. We'll look at actions more later.\n  - `subscribe` to listen for state changes\n\n> [Learn more](http://redux.js.org/docs/basics/Store.html).\n\nLet's get started by settings up the **store** for your Redux app.",
+      "description": "In Redux, the **store** is the boss. Think of the **store** as holding the \"single source of truth\" of your application data.\n\nOnce created, the **store** has several helpful methods:\n  - `getState` to read the current data of your app.\n  - `dispatch` to trigger actions. We'll look at actions more later.\n  - `subscribe` to listen for state changes\n\n> [Learn more](http://redux.js.org/docs/basics/Store.html).\n\nLet's get started by settings up the **store** for your Redux app. We will be working in \"src/index.js\".",
       "tasks": [
         {
           "description": "install Redux as a dependency.",
@@ -60,7 +60,7 @@
           ]
         },
         {
-          "description": "create your first store and call it `store`. Use a simple \"reducer\" function for now, let's say `state => state`.",
+          "description": "use `createStore` to make your first store. Be sure to call it `store`. Use a simple \"reducer\" function for now, let's say `state => state`. See [docs](http://redux.js.org/docs/api/createStore.html).",
           "hints": [
             "declare your store, `const store`",
             "call store with a simple reducer, `const store = createStore(state => state)`"
@@ -88,7 +88,7 @@
           ]
         },
         {
-          "description": "import the newly written data in 'data.js'. Set it to a variable called \"initialState\".",
+          "description": "import the newly written data in 'data.js'. Set it to a variable called \"initialState\". Note: due to a bug with `import`'s, use `require` for imports.",
           "tests": [
             "02/06"
           ],
@@ -102,7 +102,7 @@
         {
           "description": "pass in `initialState` as a second param your `createStore`",
           "tests": [
-            "02/06"
+            "02/07"
           ],
           "hints": [
             "Pass in `initialState` as a second param to `createStore`"

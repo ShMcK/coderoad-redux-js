@@ -8,7 +8,7 @@ Once created, the **store** has several helpful methods:
 
 > [Learn more](http://redux.js.org/docs/basics/Store.html).
 
-Let's get started by settings up the **store** for your Redux app.
+Let's get started by settings up the **store** for your Redux app. We will be working in "src/index.js".
 
 
 + install Redux as a dependency.
@@ -20,7 +20,7 @@ Let's get started by settings up the **store** for your Redux app.
 @hint('Add `import { createStore } from 'redux';`')
 @test('02/02')
 
-+ create your first store and call it `store`. Use a simple "reducer" function for now, let's say `state => state`.
++ use `createStore` to make your first store. Be sure to call it `store`. Use a simple "reducer" function for now, let's say `state => state`. See [docs](http://redux.js.org/docs/api/createStore.html).
 @hint('declare your store, `const store`')
 @hint('call store with a simple reducer, `const store = createStore(state => state)`')
 @test('02/03')
@@ -33,13 +33,13 @@ Let's get started by settings up the **store** for your Redux app.
 @test('02/05')
 @hint('`console.log(store.getState())`')
 
-+ import the newly written data in 'data.js'. Set it to a variable called "initialState".
++ import the newly written data in 'data.js'. Set it to a variable called "initialState". Note: due to a bug with `import`'s, use `require` for imports.
 @test('02/06')
 @action(writeFromFile('src/data.js', '02/data.js'))
 @hint('Try this: `const initialState = require('./data.js').default;`')
 
 + pass in `initialState` as a second param your `createStore`
-@test('02/06')
+@test('02/07')
 @hint('Pass in `initialState` as a second param to `createStore`')
 
 @onPageComplete('As you can see, the store is just an object with various methods like "dispatch" and "getState". Let's see what these methods do in the next step.')

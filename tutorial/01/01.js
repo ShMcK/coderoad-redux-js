@@ -2,11 +2,8 @@ const expect = require('chai').expect;
 
 describe('01 setup', () => {
 
-	it('dist directory doesn\'t exist. Run `npm run setup`', () => {
-		expect(exists('dist')).to.be.true;
-	});
-
 	it('src directory doesn\'t exist. Run `npm run setup`', () => {
+		console.log(exists('src'));
 		expect(exists('src')).to.be.true;
 	});
 

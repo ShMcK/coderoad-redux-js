@@ -34,7 +34,7 @@ Running `> npm run setup` will do the following:
 
 You'll find this "setup" script located in your *package.json*.
 
-> We'll be installing several NPM packages from terminal. You may consider installing a plugin for adding a terminal inside your editor, such as ["platformio-ide-terminal"](https://github.com/platformio/platformio-atom-ide-terminal).
+We'll be installing several NPM packages from terminal. You may consider installing a plugin for adding a terminal inside your editor, such as ["platformio-ide-terminal"](https://github.com/platformio/platformio-atom-ide-terminal).
 
 ##### The Store
 
@@ -47,7 +47,7 @@ Once created, the **store** has several helpful methods:
 
 > [Learn more](http://redux.js.org/docs/basics/Store.html).
 
-Let's get started by settings up the **store** for your Redux app.
+Let's get started by settings up the **store** for your Redux app. We will be working in "src/index.js".
 
 ##### Actions
 

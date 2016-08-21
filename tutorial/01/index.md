@@ -12,7 +12,7 @@ Running `> npm run setup` will do the following:
 
 You'll find this "setup" script located in your *package.json*.
 
-> We'll be installing several NPM packages from terminal. You may consider installing a plugin for adding a terminal inside your editor, such as ["platformio-ide-terminal"](https://github.com/platformio/platformio-atom-ide-terminal).
+We'll be installing several NPM packages from terminal. You may consider installing a plugin for adding a terminal inside your editor, such as ["platformio-ide-terminal"](https://github.com/platformio/platformio-atom-ide-terminal).
 
 + Open a terminal in this project directory and run `npm run setup`. Save to continue.
 @test('01/01')
