@@ -32,7 +32,7 @@ Our reducer is passed in as the first param when we create our **store**.
 
 > [Learn more](http://redux.js.org/docs/basics/Reducers.html).
 
-+ Extract the `state => state` function called by `createStore`, and declare it with a variable called "reducer".
++ Extract the `state => state` function called by `createStore`, and declare it as a variable called "reducer".
 @test('04/01')
 @action(open('src/index.js'))
 @hint('Try this: `const reducer = state => state;`')

@@ -48,7 +48,7 @@ const getItem = (id) => ({ type: GET_ITEM, payload: { id }});
 
 Let's write an action for voting up your choice of worst pokemon.
 
-+ create an action called `voteUp` and a type of 'VOTE_UP'
++ create an action called `voteUp`. It should be an object with a type of 'VOTE_UP'
 @test('03/01')
 @action(open('src/index.js'))
 

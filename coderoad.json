@@ -116,7 +116,7 @@
       "description": "An **action** is a named event that can trigger a change in your application data.\n\nActions are often broken into three parts to make your code more readable.\n\n##### 1. Actions\n\nAn **action** includes a named \"type\".\n```js\nconst action = { type: 'ACTION_NAME' };\n```\n\nActions may also include other possible params needed to transform that data.\n\n```js\nconst getItem = { type: 'GET_ITEM', clientId: 42, payload: { id: 12 } };\n```\n\nNormal params passed in are often put inside of a `payload` object. This is part of a standard called [Flux Standard Action](https://github.com/acdlite/flux-standard-action). Other common fields include `error` & `meta`.\n\n##### 2. Action Creators\n\nAn **action creator** is a functions that creates an action.\n\n```js\nconst actionName = () => ({ type: 'ACTION_NAME' });\n```\n\nAction creators make it easy to pass params into an action.\n\n```js\nconst getItem = (clientId, id) => ({ type: 'GET_ITEM', clientId: 42, payload: { id: 12 } });\n```\n\n##### 3. Action Types\n\nOften, the action name is also extracted as an **action type**. This is helpful for readability and to catch action name typos. Additionally, most editors will auto-complete your action types from the variable name.\n\n```js\nconst ACTION_NAME = 'ACTION_NAME';\nconst GET_ITEM = 'GET_ITEM';\n\nconst action = () => ({ type: ACTION_NAME });\nconst getItem = (id) => ({ type: GET_ITEM, payload: { id }});\n```\n\n> [Learn more](http://redux.js.org/docs/basics/Actions.html).\n\nLet's write an action for voting up your choice of worst pokemon.",
       "tasks": [
         {
-          "description": "create an action called `voteUp` and a type of 'VOTE_UP'",
+          "description": "create an action called `voteUp`. It should be an object with a type of 'VOTE_UP'",
           "tests": [
             "03/01"
           ],
@@ -167,7 +167,7 @@
       "description": "A **reducer** is what handles the actual data transformation triggered by an action.\n\nIn it's simplest form, a **reducer** is just a function with the current **state** and current **action** passed in.\n\n```js\nconst reducer = (state, action) => {\n  console.log(state);\n  return state;\n};\n```\n\nWe can handle different actions by matching on the action type. If no matches are found, we just return the original state.\n\n```js\nconst ACTION_NAME = 'ACTION_NAME';\n\nconst reducer = (state, action) => {\n  switch(action.type) {\n    // match on action.type === ACTION_NAME\n    case ACTION_NAME:\n      state = 42;\n      // return new state after transformation\n      return state;\n    default:\n      return state;\n  }\n};\n```\n\nOur reducer is passed in as the first param when we create our **store**.\n\n> [Learn more](http://redux.js.org/docs/basics/Reducers.html).",
       "tasks": [
         {
-          "description": "Extract the `state => state` function called by `createStore`, and declare it with a variable called \"reducer\".",
+          "description": "Extract the `state => state` function called by `createStore`, and declare it as a variable called \"reducer\".",
           "tests": [
             "04/01"
           ],
