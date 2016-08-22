@@ -34,7 +34,7 @@ Let's setup a `SORT_BY_POPULARITY` action to be called after each vote.
 
 + import `sortByPopularity` in "src/index.js".
 @test('09/03')
-@hint('Try this: `import { sortByPopularity } from './pokemon';`')
+@hint('Try this: `const sortByPopularity = require('./pokemon').sortByPopularity;`')
 
 + in "src/index.js", dispatch a `sortByPopularity` action at the bottom of the page
 @test('09/04')
@@ -84,4 +84,4 @@ function sortByKey(key) {
 @hint('Try this: `sortByKey('votes')`')
 @hint('Try this: pokemon.sort(sortByKey('votes'))')
 
-@onPageComplete('In the next step, we'll look at using **thunks** to call helpful async actions from within middleware')
+@onPageComplete('As you can see, a thunk is just a function that returns another function. In the next step, we'll see how **thunks** can be used to create async middleware for multiple dispatches')

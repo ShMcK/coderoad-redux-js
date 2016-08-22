@@ -431,7 +431,7 @@
     },
     {
       "title": "Logger",
-      "description": "We still haven't touched on one of the most powerful features of Redux: **middleware**.\n\nMiddleware is triggered on each action.\n\n```\n1. Dispatch(action)\n  -> 2. Middleware(state, action)\n    -> 3. Reducer(state, action)\n      -> 4. state\n```\n\nMiddleware is created with the `store`. In it's most basic form, middleware can look like the function below:\n\n```js\nconst store => next => action => {\n  // do something magical here\n  return next(action);\n  // returns result of reducer called with action\n}\n```\n\nLet's try out the power of middleware with \"redux-logger\".",
+      "description": "We still haven't worked with one of the most powerful features of Redux: **middleware**.\n\nMiddleware is triggered on each action.\n\n```\n1. Dispatch(action)\n  -> 2. Middleware(state, action)\n    -> 3. Reducer(state, action)\n      -> 4. state\n```\n\nMiddleware is created with the `store`. In it's most basic form, middleware can look like the function below:\n\n```js\nconst store => next => action => {\n  // do something magical here\n  return next(action);\n  // returns result of reducer called with action\n}\n```\n\nLet's try out the power of middleware with \"redux-logger\".",
       "tasks": [
         {
           "description": "import `applyMiddleware` in \"index.js\" from the \"redux\" package. It is a named import.",
@@ -443,7 +443,7 @@
           ]
         },
         {
-          "description": "set the second param in createStore to `applyMiddleware()`",
+          "description": "set the second param in createStore to `applyMiddleware()`. See the [docs](http://redux.js.org/docs/api/applyMiddleware.html).",
           "tests": [
             "08/02"
           ],
@@ -452,7 +452,7 @@
           ]
         },
         {
-          "description": "install \"redux-logger\" using npm",
+          "description": "install \"redux-logger\" using npm. See the [docs](https://github.com/evgenyrodionov/redux-logger).",
           "tests": [
             "08/03"
           ],
@@ -489,7 +489,7 @@
           ]
         }
       ],
-      "onPageComplete": "Look in the console"
+      "onPageComplete": "Look in the console to see how \"redux-logger\" works. Amazing. We'll learn more about middleware in step 10, but first let's add another action in the next step"
     },
     {
       "title": "Second Action",
@@ -524,7 +524,7 @@
             "09/03"
           ],
           "hints": [
-            "Try this: `import { sortByPopularity } from './pokemon';`"
+            "Try this: `const sortByPopularity = require('./pokemon').sortByPopularity;`"
           ]
         },
         {
@@ -578,14 +578,14 @@
           ]
         }
       ],
-      "onPageComplete": "In the next step, we'll look at using **thunks** to call helpful async actions from within middleware"
+      "onPageComplete": "As you can see, a thunk is just a function that returns another function. In the next step, we'll see how **thunks** can be used to create async middleware for multiple dispatches"
     },
     {
       "title": "Thunk",
       "description": "As we've seen in the previous steps, thunks sound more complicated than they really are. A thunk is just a function that returns a function.\n\nInside of middleware, we can determine if an action is returning a function.\n\n```js\nconst store => next => action => {\n  if (typeof action === 'function') {\n    // it's a thunk!\n  }\n  return next(action);\n}\n```\n\nIf it is a thunk, we can pass in two helpful params:\n  - `store.dispatch`\n  - `store.getState`\n\nAs we'll see, `dispatch` alone can allow us to create async or multiple actions.",
       "tasks": [
         {
-          "description": "install \"redux-thunk\" as a dependency",
+          "description": "install \"redux-thunk\" as a dependency. See the [docs](https://github.com/gaearon/redux-thunk).",
           "tests": [
             "10/01"
           ],

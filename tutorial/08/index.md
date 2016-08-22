@@ -1,5 +1,5 @@
 ## Logger
-We still haven't touched on one of the most powerful features of Redux: **middleware**.
+We still haven't worked with one of the most powerful features of Redux: **middleware**.
 
 Middleware is triggered on each action.
 
@@ -26,11 +26,11 @@ Let's try out the power of middleware with "redux-logger".
 @test('08/01')
 @action(open('src/index.js'))
 
-+ set the second param in createStore to `applyMiddleware()`
++ set the second param in createStore to `applyMiddleware()`. See the [docs](http://redux.js.org/docs/api/applyMiddleware.html).
 @test('08/02')
 @hint('Try this: `createStore(reducers, applyMiddleware());`')
 
-+ install "redux-logger" using npm
++ install "redux-logger" using npm. See the [docs](https://github.com/evgenyrodionov/redux-logger).
 @test('08/03')
 @hint('Try this: `npm install --save-dev redux-logger`')
 
@@ -47,4 +47,4 @@ Let's try out the power of middleware with "redux-logger".
 @test('08/06')
 @hint('Try this: `applyMiddleware(logger)`')
 
-@onPageComplete('Look in the console')
+@onPageComplete('Look in the console to see how "redux-logger" works. Amazing. We'll learn more about middleware in step 10, but first let's add another action in the next step')

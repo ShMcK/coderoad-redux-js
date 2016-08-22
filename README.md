@@ -229,7 +229,7 @@ For simplicity in this example, we'll try putting our files together by function
 
 ##### Logger
 
-We still haven't touched on one of the most powerful features of Redux: **middleware**.
+We still haven't worked with one of the most powerful features of Redux: **middleware**.
 
 Middleware is triggered on each action.
 

@@ -18,7 +18,7 @@ If it is a thunk, we can pass in two helpful params:
 
 As we'll see, `dispatch` alone can allow us to create async or multiple actions.
 
-+ install "redux-thunk" as a dependency
++ install "redux-thunk" as a dependency. See the [docs](https://github.com/gaearon/redux-thunk).
 @test('10/01')
 @action(open('src/index.js'))
 @hint('Try this: `npm install --save redux-thunk`')
