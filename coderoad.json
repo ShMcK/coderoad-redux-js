@@ -277,7 +277,7 @@
       "description": "In Redux, we are not limited to writing a long, single reducer. Using `combineReducers` allows us to create modular, composable reducers.\n\nAs our state is an object, for example:\n\n```js\n{\n  pokemon: [ ... ],\n  users: [ ... ]\n}\n```\n\nWe can create a reducer to handle data transformations for each key in our state.\n\n```js\n{\n  pokemon: pokemonReducer,\n  users: usersReducer\n}\n```\n\nAs our app grows, we can now think of the data in smaller chunks.\n\n> [Learn more](http://redux.js.org/docs/api/combineReducers.html).\n\nLet's try refactoring our app to use `combineReducers`.",
       "tasks": [
         {
-          "description": "create a new `const reducers` and set it equal to \"reducer\". Pass \"reducers\" into your store for now, instead of \"reducer\". If this seems convoluted it is because we're trying not to break the app.",
+          "description": "create a new `const reducers` and set it equal to \"reducer\". Pass \"reducers\" into your store for now, instead of \"reducer\". If this seems convoluted it is because we're trying not to break the app. Also comment out any `store.dispatch`'s until the change is complete.",
           "tests": [
             "06/01"
           ],
@@ -351,12 +351,12 @@
           ]
         },
         {
-          "description": "`reducers` should now call `combineReducers` instead and call `pokemon`. `combineReducers` takes an object with keys of each reducer.",
+          "description": "`reducers` should now call `combineReducers` instead and call `pokemon`. `combineReducers` takes an object with keys of each reducer. See the [docs](http://redux.js.org/docs/api/combineReducers.html).",
           "tests": [
             "06/08"
           ],
           "hints": [
-            "Try this: `const reducers = combineReducers({pokemon});`"
+            "Try this: `const reducers = combineReducers({ pokemon });`"
           ]
         }
       ],
@@ -367,7 +367,7 @@
       "description": "Our \"index.js\" file is getting a little long. Of course, our app will be more maintainable if we can divide it across different, well structured files.\n\nThere are different ways of structuring your app:\n\n##### 1. Files By Type\n\n- store.js\n- action-types.js\n- action-creators.js\n- reducers.js\n\n##### 2. Files By Function\n\n- store.js\n- reducers.js\n- modules\n  - pokemon\n    - index.js\n\n##### 3. Files by Function & Type\n\n- store\n- reducers.js\n- modules\n  - pokemon\n    - actions.js\n    - reducer.js\n    - action-types.js\n\nFor simplicity in this example, we'll try putting our files together by function.",
       "tasks": [
         {
-          "description": "create a folder in your base directory called \"pokemon\" and add a file inside called \"index.js\"",
+          "description": "create a new folder in your \"src\" directory called \"pokemon\" and add a file inside called \"index.js\"",
           "tests": [
             "07/01"
           ],
@@ -401,7 +401,7 @@
             "07/04"
           ],
           "hints": [
-            "Try this: `import { voteUp } from './pokemon';`"
+            "Try this: `const voteUp = require('./pokemon').voteUp;`"
           ]
         },
         {
@@ -422,11 +422,12 @@
             "07/07"
           ],
           "hints": [
-            "Try this: `import { default as pokemon, voteUp } from './pokemon';`"
+            "Normally we write this: `const { default as pokemon, voteUp } from './pokemon';`",
+            "Due to a current issue in CodeRoad, we must write: `const pokemon = require('./pokemon').default;`"
           ]
         }
       ],
-      "onPageComplete": "Page 7 complete..."
+      "onPageComplete": "Now that our project is more organized, we'll look at one of the most powerful features of Redux: middleware"
     },
     {
       "title": "Logger",

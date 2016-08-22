@@ -1,9 +1,14 @@
-describe('07 import', () => {
+describe('07 pokemon reducer', () => {
 
-  it('`default as pokemon` from "./pokemon" in "index.js"', () => {
+  it('should be in "src/index.js"', () => {
     const pokemon = indexJs.__get__('pokemon');
     expect(pokemon).to.not.be.undefined;
     expect(typeof pokemon).to.equal('function');
+  });
+
+  it('should be imported in "src/index.js"', () => {
+    const input = indexJs.__text__;
+    const regex = /import\s?pokemon|pokemon.*require.*default/;
   });
 
 });

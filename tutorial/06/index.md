@@ -25,7 +25,7 @@ As our app grows, we can now think of the data in smaller chunks.
 
 Let's try refactoring our app to use `combineReducers`.
 
-+ create a new `const reducers` and set it equal to "reducer". Pass "reducers" into your store for now, instead of "reducer". If this seems convoluted it is because we're trying not to break the app.
++ create a new `const reducers` and set it equal to "reducer". Pass "reducers" into your store for now, instead of "reducer". If this seems convoluted it is because we're trying not to break the app. Also comment out any `store.dispatch`'s until the change is complete.
 @test('06/01')
 @action(open('src/index.js'))
 @hint('First, try this: `const reducers = reducer;`')
@@ -62,9 +62,9 @@ Let's try refactoring our app to use `combineReducers`.
 @test('06/07')
 @hint('Try this: `import { combineReducers } from 'redux';`')
 
-+ `reducers` should now call `combineReducers` instead and call `pokemon`. `combineReducers` takes an object with keys of each reducer.
++ `reducers` should now call `combineReducers` instead and call `pokemon`. `combineReducers` takes an object with keys of each reducer. See the [docs](http://redux.js.org/docs/api/combineReducers.html).
 @test('06/08')
-@hint('Try this: `const reducers = combineReducers({pokemon});`')
+@hint('Try this: `const reducers = combineReducers({ pokemon });`')
 
 
 @onPageComplete('The state remains the same, but now our reducers are much more modular. In the next step, we will separate our code into it's own file')

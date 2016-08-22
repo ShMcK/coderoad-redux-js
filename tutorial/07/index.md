@@ -30,7 +30,7 @@ There are different ways of structuring your app:
 
 For simplicity in this example, we'll try putting our files together by function.
 
-+ create a folder in your base directory called "pokemon" and add a file inside called "index.js"
++ create a new folder in your "src" directory called "pokemon" and add a file inside called "index.js"
 @test('07/01')
 @hint('create a file in "src/pokemon/index.js"')
 
@@ -46,7 +46,7 @@ For simplicity in this example, we'll try putting our files together by function
 
 + import `voteUp` inside of "src/index.js". Also delete the unnecessary 'voteUp' in the same file from before.
 @test('07/04')
-@hint('Try this: `import { voteUp } from './pokemon';`')
+@hint('Try this: `const voteUp = require('./pokemon').voteUp;`')
 
 + take the `defaultPokemon` from "src/index.js" and copy it into "src/pokemon/index.js"
 @test('07/05')
@@ -56,6 +56,7 @@ For simplicity in this example, we'll try putting our files together by function
 
 + in your "src/index.js" file, also import your pokemon reducer. This can be on the same line of code. Delete the unnecessary original "pokemon", "defaultPokemon" and "VOTE_UP" as well.
 @test('07/07')
-@hint('Try this: `import { default as pokemon, voteUp } from './pokemon';`')
+@hint('Normally we write this: `const { default as pokemon, voteUp } from './pokemon';`')
+@hint('Due to a current issue in CodeRoad, we must write: `const pokemon = require('./pokemon').default;`')
 
-@onPageComplete('Page 7 complete...')
+@onPageComplete('Now that our project is more organized, we'll look at one of the most powerful features of Redux: middleware')
