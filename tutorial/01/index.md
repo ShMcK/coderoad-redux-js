@@ -7,7 +7,7 @@ Running `> npm run setup` will do the following:
 
 1. Install package dev dependencies
 2. Create an output directory called "dist"
-3. Install "concurrently" & "browser-sync" globally
+3. Install "concurrently", "browser-sync" & "browserify" globally
 4. Run our app in the browser
 
 You'll find this "setup" script located in your *package.json*.
@@ -19,6 +19,7 @@ We'll be installing several NPM packages from terminal. You may consider install
 @hint('Open up Bash (terminal) in this project directory and run `npm run setup` to get setup')
 @hint('If you're using Windows, you may want to use Git Bash')
 @hint('If your setup fails, try running `sudo npm run setup`')
+@hint('Don't forget to `npm install -g concurrently browser-sync browserify`)
 @action(writeFromFile('package.json', '01/package.json'))
 
 + To run the app, simply run `npm start`. Save to continue.
